@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { GithubOutlined } from '@ant-design/icons';
 
 // styles
@@ -12,14 +13,27 @@ import {
 	StyleSider,
 	StyleTitle,
 } from './style';
-import MenuPages from './Menu';
+import MenuPages, { menuData } from './Menu';
 
 interface IProps {
 	children: React.ReactNode;
 }
 
 const Layout = ({ children }: IProps) => {
+	const { pathname } = useRouter();
 	const [selectedKey, setSelectedKey] = useState('get-started');
+
+	React.useEffect(() => {
+		menuData.map((item) => {
+			item.children.map((c) => {
+				const isActive = pathname.endsWith(c.key);
+				if (isActive) {
+					setSelectedKey(c.key);
+				}
+			});
+		});
+	}, [pathname]);
+
 	return (
 		<StyleLayout>
 			<StyleHead theme="light">
@@ -39,9 +53,7 @@ const Layout = ({ children }: IProps) => {
 					collapsedWidth="0"
 				>
 					<MenuPages onSelectKey={setSelectedKey} selectedKey={selectedKey} />
-					<StyleAsideFooter>
-						Copyright &copy;
-					</StyleAsideFooter>
+					<StyleAsideFooter>Copyright &copy;</StyleAsideFooter>
 				</StyleSider>
 				<StyleContent>{children}</StyleContent>
 			</StyleLayout>

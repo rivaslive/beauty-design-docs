@@ -1,15 +1,16 @@
 import React from 'react';
 import { Menu } from 'antd';
+import Link from 'next/link';
 
-const menuData = [
+export const menuData = [
 	{
 		key: 'started',
 		name: 'Started',
 		type: 'divider',
 		children: [
 			{
-				key: 'get-started',
-				name: 'Get started',
+				key: 'getting-started',
+				name: 'Getting started',
 			},
 		],
 	},
@@ -91,12 +92,18 @@ const MenuPages = ({ selectedKey, onSelectKey }: MenuPagesProps) => {
 					return (
 						<Menu.ItemGroup key={menu.key} title={menu.name}>
 							{menu?.children?.map((child) => (
-								<Menu.Item key={child.key}>{child.name}</Menu.Item>
+								<Menu.Item key={child.key}>
+									<Link href={`/v1/components/${child.key}`}>{child.name}</Link>
+								</Menu.Item>
 							))}
 						</Menu.ItemGroup>
 					);
 				}
-				return <Menu.Item key={menu.key}>{menu.name}</Menu.Item>;
+				return (
+					<Menu.Item key={menu.key}>
+						<Link href={`/v1/components/${menu.key}`}>{menu.name}</Link>
+					</Menu.Item>
+				);
 			})}
 		</Menu>
 	);

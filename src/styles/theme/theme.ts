@@ -20,7 +20,8 @@ export type ColorVariant =
 	| 'magenta'
 	| 'purpleBlue'
 	| 'purple1'
-	| 'purple2';
+	| 'purple2'
+	| 'bg';
 
 export const colors = {
 	primary: '#713DF9',
@@ -36,6 +37,7 @@ export const colors = {
 	purpleBlue: '#A300EB',
 	purple1: '#CB00B6',
 	purple2: '#B600D4',
+	bg: '#f1f1f1',
 };
 
 export const mediaQueries = {
