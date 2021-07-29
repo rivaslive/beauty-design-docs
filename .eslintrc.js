@@ -14,6 +14,7 @@ module.exports = {
 	rules: {
 		'no-undef': 'off',
 		'react/prop-types': 0,
+		'no-unused-vars': 0, // Temporal
 		'react-hooks/rules-of-hooks': 'error',
 		'no-console': 'warn',
 		'promise/catch-or-return': 0,
