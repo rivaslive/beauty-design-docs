@@ -9,10 +9,12 @@ const GlobalStyle = createGlobalStyle`
 		overflow: hidden;
 		font-family: ${fontNames.roboto} !important;
 		scroll-behavior: smooth;
+		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
 	}
 
 	* {
 		scroll-behavior: smooth;
+		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
 	}
 
 	label {
@@ -22,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: ${fontNames.roboto};
+	}
+
+	.max-width {
+		max-width: 100%;
 	}
 `;
 

@@ -1,19 +1,22 @@
 import React from 'react';
 
 // components
+import Layout from 'components/Molecules/Layout';
 import Title from 'components/Atoms/Title';
 import { useRouter } from 'next/router';
 
-export default function Home() {
+const ComponentsPage = () => {
 	const router = useRouter();
 	React.useEffect(() => {
 		// TODO: Temporal redirect building...
-		router.replace('/v1/components');
+		router.replace('/v1/components/getting-started');
 	}, [router]);
 
 	return (
-		<div>
+		<Layout>
 			<Title variant="ROBOT_36_50_500">Bienvenido a Beauty UI</Title>
-		</div>
+		</Layout>
 	);
-}
+};
+
+export default React.memo(ComponentsPage);

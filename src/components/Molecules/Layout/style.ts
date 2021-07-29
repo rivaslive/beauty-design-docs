@@ -61,21 +61,23 @@ export const StyleInputSearch = styled(Input)`
 
 export const StyleSider = styled(Sider)`
 	&.ant-layout-sider {
-		height: calc(100vh - 64px);
-		overflow-y: auto;
+		.ant-layout-sider-children {
+			height: calc(100vh - 64px);
+			overflow-y: auto;
 
-		&::-webkit-scrollbar {
-			background-color: transparent;
-			width: 8px;
-		}
+			&::-webkit-scrollbar {
+				background-color: transparent;
+				width: 8px;
+			}
 
-		&::-webkit-scrollbar-thumb {
-			background-color: transparent;
-		}
-
-		&:hover {
 			&::-webkit-scrollbar-thumb {
-				background-color: #d9d9d9;
+				background-color: transparent;
+			}
+
+			&:hover {
+				&::-webkit-scrollbar-thumb {
+					background-color: #d9d9d9;
+				}
 			}
 		}
 	}
@@ -110,11 +112,14 @@ export const StyleSider = styled(Sider)`
 export const StyleContent = styled(Content)`
 	height: calc(100vh - 64px);
 	flex: 0 0 100%;
-	padding: 10px;
+	padding: 10px 10px 100px;
+	background: white;
 	overflow-y: auto;
+	scroll-behavior: smooth;
 
 	${mediaQueries.minTablet} {
-		padding: 10px 20px;
+		padding: 10px 20px 100px;
+		flex: 0 0 calc(100% - 250px);
 	}
 `;
 
@@ -125,6 +130,6 @@ export const StyleAsideFooter = styled.div`
 	padding: 20px;
 	height: 75px;
 	width: 100%;
-	background: rgba(100, 100, 100, .05);
+	background: rgba(100, 100, 100, 0.05);
 	border-top: 1px solid #f0f0f0;
 `;
