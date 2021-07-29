@@ -10,6 +10,7 @@ const Title = ({
 	isLink = false,
 	variant = 'ROBOT_28_39_400',
 	color = '',
+	className = '',
 	textTransform = 'none',
 	...rest
 }: ITitleProps) => {
@@ -20,7 +21,7 @@ const Title = ({
 			return navigator.clipboard.writeText(`${origin}${pathname}#${ref}`);
 		};
 		return (
-			<StyleTitleContent>
+			<StyleTitleContent className={className}>
 				<Link href={`#${children}`.split(' ').join('-')} passHref>
 					<a>
 						<StyleTitle
@@ -46,6 +47,7 @@ const Title = ({
 			level={2}
 			$color={color}
 			$variant={variant}
+			className={className}
 			$textTransform={textTransform}
 			{...rest}
 		>

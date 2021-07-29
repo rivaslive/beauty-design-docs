@@ -9,6 +9,9 @@ interface IProps {
 	children?: React.ReactNode;
 	copiable?: boolean;
 	code?: boolean;
+	background?: string;
+	wrapLines?: boolean;
+	showLineNumbers?: boolean;
 }
 
 const Code = ({ copiable = true, code = true, children }: IProps) => {
@@ -19,13 +22,18 @@ const Code = ({ copiable = true, code = true, children }: IProps) => {
 	);
 };
 
-export const BlockCode = ({ children }: IProps) => {
+export const BlockCode = ({
+	children,
+	background = 'rgba(150,150,150,.1)',
+	showLineNumbers = true,
+	wrapLines = true,
+}: IProps) => {
 	return (
 		<SyntaxHighlighter
-			wrapLines
-			showLineNumbers
+			wrapLines={wrapLines}
+			showLineNumbers={showLineNumbers}
 			language="typescript"
-			customStyle={{ background: 'rgba(150,150,150,.1)' }}
+			customStyle={{ background }}
 			style={a11yLight}
 		>
 			{children}
