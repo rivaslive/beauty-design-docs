@@ -31,7 +31,7 @@ interface IProps {
 	[key: string]: unknown;
 }
 
-const Example = ({ id, title, summary, code, image, ...rest }: IProps) => {
+const Example = ({ title, summary, code, image, ...rest }: IProps) => {
 	const [showCode, setShowCode] = React.useState<boolean>(false);
 
 	const showCodeFunc = () => setShowCode((prev) => !prev);

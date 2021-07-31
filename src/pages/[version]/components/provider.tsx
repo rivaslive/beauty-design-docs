@@ -1,4 +1,10 @@
 import React from 'react';
+import { Col, Row } from 'antd';
+import { gql } from '@apollo/client';
+
+import { client } from 'apollo/config';
+import { getIdComponent } from 'utils/getIdComponent';
+import { GET_COMPONENT_VERSION } from 'graphql/component.query';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -6,71 +12,116 @@ import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
 import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table';
-import { providerAPI } from 'mock/v1/provider';
 import Example from 'components/Molecules/Example';
-import { Col, Row } from 'antd';
 
-const code = `import { UINativeProvider } from 'react-native-beauty-ui';
+interface IProps {
+	data: IComponentes;
+}
 
-export default function App() {
-  return (
-    <UINativeProvider>
-      ...
-    </UINativeProvider>
-  );
-}`;
-
-const GettingStartedPage = () => {
+const ProviderPage = ({ data }: IProps) => {
 	return (
 		<Layout>
 			{/* provider */}
-			<Title variant="ROBOT_36_50_500">Provider</Title>
-			<Text
-				variant="ROBOT_14_28_400"
-				html={`The provider is a mandatory component that must be at the highest possible level of your application, before using any other component of beauty-ui`}
-			/>
+			<Title variant="ROBOT_36_50_500">{data?.title}</Title>
+			<Text variant="ROBOT_14_28_400" html={data?.description} />
 			<br />
 
 			{/* How to use */}
-			<Title id="How-to-use?" variant="ROBOT_24_28_500" isLink>How to use?</Title>
-			<Text
-				variant="ROBOT_14_28_400"
-				html={`You can import the component at the top level of your application`}
-			/>
+			{data?.howToUse && (
+				<>
+					<Title id="How-to-use?" variant="ROBOT_24_28_500" isLink>
+						How to use?
+					</Title>
+					<Text variant="ROBOT_14_28_400" html={data.howToUse} />
+				</>
+			)}
 			<br />
-			<BlockCode>{code}</BlockCode>
+			<BlockCode>{data?.defaultCode}</BlockCode>
 			<br />
 
 			{/* Examples */}
-			<Title id="Examples" variant="ROBOT_24_28_500" isLink>Examples</Title>
+			<Title id="Examples" variant="ROBOT_24_28_500" isLink>
+				Examples
+			</Title>
 			<Row gutter={[20, 20]}>
-				<Col xs={24} md={12}>
-					<Example
-						id='Default-Provider'
-						image="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/09804a82963291.5d308c3850e2c.gif"
-						title="Default Provider"
-						summary="Basic provider"
-						code={code}
-					/>
-				</Col>
-				<Col xs={24} md={12}>
-					<Example
-						id='Provider-with-custom-colors'
-						image="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/09804a82963291.5d308c3850e2c.gif"
-						title="Provider with custom colors"
-						summary="Change or add the colors theme in the provider"
-						code={code}
-					/>
-				</Col>
+				{data?.ejemplos?.map((example) => (
+					<Col xs={24} md={12}>
+						<Example
+							key={example.id}
+							id={getIdComponent(example.title)}
+							image={`http://localhost:1337${example?.imagen?.url}`}
+							title={example.title}
+							summary={example.description}
+							code={example.code}
+						/>
+					</Col>
+				))}
 			</Row>
 			<br />
 
 			{/* Api */}
-			<Title id="API" variant="ROBOT_24_28_500" isLink>API</Title>
+			<Title id="API" variant="ROBOT_24_28_500" isLink>
+				API
+			</Title>
 			<br />
-			<Table items={providerAPI}/>
+			{data?.apis?.map((api) => (
+				<Table
+					key={api.id}
+					title={api.title}
+					items={api?.items || []}
+					description={api.description}
+				/>
+			))}
 		</Layout>
 	);
 };
 
-export default React.memo(GettingStartedPage);
+// SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
+export async function getStaticPaths() {
+	const { data } = await client.query({
+		query: gql`
+			query {
+				versions {
+					id
+					version
+				}
+			}
+		`,
+	});
+
+	const paths = data.versions.map((v: any) => ({
+		params: v,
+	}));
+
+	// We'll pre-render only these paths at build time.
+	// { fallback: false } means other routes should 404.
+	return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }: any) {
+	let res = null;
+	// Call an external API endpoint to get posts
+	const { data } = await client.query<IGraphComponentRes, IGraphComponentReq>({
+		query: GET_COMPONENT_VERSION,
+		variables: {
+			title: 'Provider',
+			version: params.version,
+		},
+	});
+
+	if (data && data?.componentes) {
+		if (data.componentes.length) {
+			res = data.componentes[0];
+		}
+	}
+
+	// By returning { props: { data } }, the component
+	// will receive `data` as a prop at build time
+	return {
+		props: {
+			data: res,
+		},
+	};
+}
+
+export default React.memo(ProviderPage);

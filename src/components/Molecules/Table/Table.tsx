@@ -3,19 +3,22 @@ import { Table as TableAnt } from 'antd';
 import Text from 'components/Atoms/Text';
 
 interface IProps {
+	title: string;
+	description: string;
 	items: {
-		name: string;
+		id: string;
+		property: string;
 		description: string;
 		type: string;
 		default: string;
-	}[];
+	}[]
 }
 
 const Table = ({ items }: IProps) => {
 	const columns = [
 		{
 			title: 'Property',
-			dataIndex: 'name',
+			dataIndex: 'property',
 		},
 		{
 			title: 'Description',
