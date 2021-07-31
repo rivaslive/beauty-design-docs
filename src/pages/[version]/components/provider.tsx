@@ -49,7 +49,7 @@ const ProviderPage = ({ data }: IProps) => {
 						<Example
 							key={example.id}
 							id={getIdComponent(example.title)}
-							image={`http://localhost:1337${example?.imagen?.url}`}
+							image={example?.imagen?.url}
 							title={example.title}
 							summary={example.description}
 							code={example.code}

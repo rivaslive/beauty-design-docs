@@ -35,7 +35,6 @@ const Example = ({ title, summary, code, image, ...rest }: IProps) => {
 	const [showCode, setShowCode] = React.useState<boolean>(false);
 
 	const showCodeFunc = () => setShowCode((prev) => !prev);
-
 	return (
 		<StyleExample {...rest}>
 			<StyleFirstSection>
