@@ -13,7 +13,7 @@ declare interface IComponentes {
 		version: string;
 	};
 	image?: {
-		previewUrl?: string;
+		url?: string;
 	};
 	ejemplos: {
 		id: string;

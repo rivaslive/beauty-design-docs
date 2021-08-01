@@ -12,7 +12,7 @@ query getProvider($title: String, $version: String) {
         version
       }
       image {
-        previewUrl
+        url
       }
       ejemplos {
         id

@@ -8,7 +8,7 @@ export default function Home() {
 	const router = useRouter();
 	React.useEffect(() => {
 		// TODO: Temporal redirect building...
-		router.replace('/[version]/components');
+		router.replace('/v1/components');
 	}, [router]);
 
 	return (

@@ -14,11 +14,7 @@ import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table';
 import Example from 'components/Molecules/Example';
 
-interface IProps {
-	data: IComponentes;
-}
-
-const ProviderPage = ({ data }: IProps) => {
+const ProviderPage = ({ data }: PageProps) => {
 	return (
 		<Layout>
 			{/* provider */}
@@ -95,7 +91,7 @@ export async function getStaticPaths() {
 
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
-	return { paths, fallback: false };
+	return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }: any) {
