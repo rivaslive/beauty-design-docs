@@ -36,21 +36,28 @@ class MyDocument extends Document {
 					<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 					<meta name="msapplication-TileImage" content="/favicon.png" />
 					<link
-						rel="apple-touch-icon-precomposed"
-						sizes="128x128"
-						href="/favicon.png"
+						rel="apple-touch-icon"
+						sizes="180x180"
+						href="/apple-touch-icon.png"
 					/>
 					<link
 						rel="icon"
 						type="image/png"
-						href="/favicon.png"
-						sizes="128x128"
+						sizes="32x32"
+						href="/favicon-32x32.png"
 					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="16x16"
+						href="/favicon-16x16.png"
+					/>
+					<link rel="manifest" href="/site.webmanifest" />
 					<meta
 						name="keywords"
-						content="empresas de marketing digital, empresa marketing digital, servicios de marketing digital, mercadeo y publicidad virtual, empresas de mercadotecnia, maestría en marketing digital, especialización marketing digital, agencia de mercadeo, mercadeo en red por internet, especializaciones marketing digital, mercadeo y publicidad virtual gratis, publicidad digital,consultores digitales, programatica, branding, performance, Rich media, Native ADs, Rising Star, display, GEO fencing, footfall attribution, multicanalidad, marketing digital, mercadeo digital"
+						content="react-native, React Native, npm, docs, beauty-ui, beauty ui, provider, title, button, tabs, cards, api"
 					/>
-					<meta name="author" content="rivaslive & Daniel" />
+					<meta name="author" content="rivaslive" />
 					<meta property="title" content="React Native Beauty UI" />
 					<meta
 						property="og:title"
@@ -58,16 +65,16 @@ class MyDocument extends Document {
 					/>
 					<meta
 						property="og:url"
-						content="https://"
+						content="https://https://beaury-ui-docs.vercel.app"
 					/>
 					<meta property="og:type" content="website" />
 					<meta
 						property="og:image"
-						content="https://"
+						content="https://https://beaury-ui-docs.vercel.app/android-chrome-192x192.png"
 					/>
 					<meta
 						property="og:image:secure_url"
-						content="https://"
+						content="https://https://beaury-ui-docs.vercel.app/android-chrome-192x192.png"
 					/>
 					<meta property="og:image:type" content="image/png" />
 					<meta property="og:image:width" content="450" />
@@ -83,11 +90,6 @@ class MyDocument extends Document {
 					<meta
 						name="description"
 						content="The best UI components library for React Native"
-					/>
-					<link
-						rel="icon"
-						href="https://"
-						type="image/png"
 					/>
 
 					{/* GOOGLE FONTS */}

@@ -28,6 +28,11 @@ export const StyleHead = styled(Header)`
 	}
 `;
 
+export const StyleBrand = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
 export const ButtonGithub = styled(Button)`
 	margin: 0;
 	padding: 0;
@@ -37,6 +42,11 @@ export const StyleTitle = styled(Title)`
 	&.ant-typography {
 		margin-top: 0 !important;
 		margin-bottom: 0;
+		font-size: 18px;
+
+		${mediaQueries.minTablet} {
+			font-size: 24px;
+		}
 	}
 `;
 
@@ -105,6 +115,31 @@ export const StyleSider = styled(Sider)`
 			background: #f0f0f0;
 			content: '';
 			transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+		}
+	}
+
+	.ant-menu-item.ant-menu-item-selected {
+		background: rgba(2, 164, 157, 0.08);
+
+		&:after {
+			border-right: 3px solid rgb(2, 164, 157);
+		}
+
+		.ant-menu-title-content {
+			* {
+				color: rgb(2, 164, 157);
+			}
+		}
+	}
+
+	//Hover
+	.ant-menu-item.ant-menu-item-active {
+		.ant-menu-title-content {
+			&:hover {
+				* {
+					color: rgb(2, 164, 157);
+				}
+			}
 		}
 	}
 `;

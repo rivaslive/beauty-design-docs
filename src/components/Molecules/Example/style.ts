@@ -13,6 +13,11 @@ export const StyleExample = styled.div`
 export const StyleFirstSection = styled.div`
 	padding: 42px 24px 50px;
 	border-bottom: 1px solid #f0f0f0;
+	text-align: center;
+
+	img {
+		margin: auto;
+	}
 `;
 
 export const StyleSecondSection = styled.div`

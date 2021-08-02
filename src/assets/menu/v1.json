@@ -1,0 +1,71 @@
+[
+	{
+		"key": "started",
+		"name": "Started",
+		"type": "divider",
+		"children": [
+			{
+				"key": "getting-started",
+				"name": "Getting started"
+			}
+		]
+	},
+	{
+		"key": "general",
+		"type": "divider",
+		"name": "General",
+		"children": [
+			{
+				"key": "provider",
+				"name": "Provider"
+			},
+			{
+				"key": "title",
+				"name": "Title"
+			},
+			{
+				"key": "text",
+				"name": "Text"
+			},
+			{
+				"key": "button",
+				"name": "Button"
+			}
+		]
+	},
+	{
+		"key": "data-display",
+		"type": "divider",
+		"name": "Data Display",
+		"children": [
+			{
+				"key": "avatar",
+				"name": "Avatar"
+			},
+			{
+				"key": "badge",
+				"name": "Badge"
+			},
+			{
+				"key": "card",
+				"name": "Card"
+			},
+			{
+				"key": "carousel",
+				"name": "Carousel"
+			},
+			{
+				"key": "comment",
+				"name": "Comment"
+			},
+			{
+				"key": "image",
+				"name": "Image"
+			},
+			{
+				"key": "tag",
+				"name": "Tag"
+			}
+		]
+	}
+]

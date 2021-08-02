@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import marked from 'marked';
 import { gql } from '@apollo/client';
+import Head from 'next/head';
 
 import { client } from 'apollo/config';
 import { getIdComponent } from 'utils/getIdComponent';
@@ -17,59 +18,61 @@ import Example from 'components/Molecules/Example';
 
 const ProviderPage = ({ data }: PageProps) => {
 	return (
-		<Layout>
-			{/* provider */}
-			<Title variant="ROBOT_36_50_500">{data?.title}</Title>
-			<Text variant="ROBOT_14_28_400" html={data?.description} />
-			<br />
-
-			{/* How to use */}
-			{data?.howToUse && (
-				<>
-					<Title id="How-to-use?" variant="ROBOT_24_28_500" isLink>
-						How to use?
-					</Title>
-					<Text variant="ROBOT_14_28_400" html={data.howToUse} />
-				</>
-			)}
-			<br />
-			{data?.defaultCode && <BlockCode>{data?.defaultCode}</BlockCode>} <br />
-			<br />
-
-			{/* Examples */}
-			<Title id="Examples" variant="ROBOT_24_28_500" isLink>
-				Examples
-			</Title>
-			<Row gutter={[20, 20]}>
-				{data?.ejemplos?.map((example) => (
-					<Col xs={24} md={12}>
-						<Example
-							key={example.id}
-							id={getIdComponent(example.title)}
-							image={example?.imagen?.url}
-							title={example.title}
-							summary={example.description}
-							code={example.code}
-						/>
-					</Col>
+		<>
+			<Head>
+				<title>Provider - react-native-beauty-ui</title>
+			</Head>
+			<Layout>
+				{/* provider */}
+				<Title variant="ROBOT_36_50_500">{data?.title}</Title>
+				<Text variant="ROBOT_14_28_400" html={data?.description} />
+				<br />
+				{/* How to use */}
+				{data?.howToUse && (
+					<>
+						<Title id="How-to-use?" variant="ROBOT_24_28_500" isLink>
+							How to use?
+						</Title>
+						<Text variant="ROBOT_14_28_400" html={data.howToUse} />
+					</>
+				)}
+				<br />
+				{data?.defaultCode && <BlockCode>{data?.defaultCode}</BlockCode>} <br />
+				<br />
+				{/* Examples */}
+				<Title id="Examples" variant="ROBOT_24_28_500" isLink>
+					Examples
+				</Title>
+				<Row gutter={[20, 20]}>
+					{data?.ejemplos?.map((example) => (
+						<Col xs={24} md={12}>
+							<Example
+								key={example.id}
+								id={getIdComponent(example.title)}
+								image={example?.imagen?.url}
+								title={example.title}
+								summary={example.description}
+								code={example.code}
+							/>
+						</Col>
+					))}
+				</Row>
+				<br />
+				{/* Api */}
+				<Title id="API" variant="ROBOT_24_28_500" isLink>
+					API
+				</Title>
+				<br />
+				{data?.apis?.map((api) => (
+					<Table
+						key={api.id}
+						title={api.title}
+						items={api?.items || []}
+						description={marked(api.description)}
+					/>
 				))}
-			</Row>
-			<br />
-
-			{/* Api */}
-			<Title id="API" variant="ROBOT_24_28_500" isLink>
-				API
-			</Title>
-			<br />
-			{data?.apis?.map((api) => (
-				<Table
-					key={api.id}
-					title={api.title}
-					items={api?.items || []}
-					description={marked(api.description)}
-				/>
-			))}
-		</Layout>
+			</Layout>
+		</>
 	);
 };
 

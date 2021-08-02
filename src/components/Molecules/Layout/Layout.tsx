@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { GithubOutlined } from '@ant-design/icons';
+
+// menu
+import * as menuData from 'assets/menu';
+import Brand from '../../../../public/brand.svg';
 
 // styles
 import {
 	ButtonGithub,
 	StyleAsideFooter,
+	StyleBrand,
 	StyleContent,
 	StyleHead,
 	StyleInputSearch,
@@ -13,31 +19,41 @@ import {
 	StyleSider,
 	StyleTitle,
 } from './style';
-import MenuPages, { menuData } from './Menu';
+import MenuPages from './Menu';
 
 interface IProps {
 	children: React.ReactNode;
 }
 
 const Layout = ({ children }: IProps) => {
-	const { pathname } = useRouter();
+	const { pathname, query } = useRouter();
+	const version = query?.version;
 	const [selectedKey, setSelectedKey] = useState('get-started');
 
 	React.useEffect(() => {
-		menuData.map((item) => {
-			item.children.map((c) => {
-				const isActive = pathname.endsWith(c.key);
-				if (isActive) {
-					setSelectedKey(c.key);
-				}
+		if (version) {
+			console.log(version);
+			// @ts-ignore
+			menuData[version].map((item: any) => {
+				item.children.map((c: any) => {
+					const isActive = pathname.endsWith(c.key);
+					if (isActive) {
+						setSelectedKey(c.key);
+					}
+				});
 			});
-		});
-	}, [pathname]);
+		}
+	}, [pathname, version]);
+
+	if (!version) return null;
 
 	return (
 		<StyleLayout>
 			<StyleHead theme="light">
-				<StyleTitle variant="ROBOT_24_28_500">Beauty UI</StyleTitle>
+				<StyleBrand>
+					<Image src={Brand} height={50} width={65} objectFit="contain" />
+					<StyleTitle variant="ROBOT_24_28_500">Beauty UI</StyleTitle>
+				</StyleBrand>
 				<StyleInputSearch placeholder="Search..." bordered={false} />
 				<ButtonGithub type="link">
 					<StyleTitle variant="ROBOT_24_28_500">
@@ -52,7 +68,11 @@ const Layout = ({ children }: IProps) => {
 					breakpoint="lg"
 					collapsedWidth="0"
 				>
-					<MenuPages onSelectKey={setSelectedKey} selectedKey={selectedKey} />
+					<MenuPages
+						version={version}
+						onSelectKey={setSelectedKey}
+						selectedKey={selectedKey}
+					/>
 					<StyleAsideFooter>Copyright &copy;</StyleAsideFooter>
 				</StyleSider>
 				<StyleContent>{children}</StyleContent>
