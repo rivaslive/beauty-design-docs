@@ -33,7 +33,7 @@ const ProviderPage = ({ data }: PageProps) => {
 				</>
 			)}
 			<br />
-			<BlockCode>{data?.defaultCode}</BlockCode>
+			{data?.defaultCode && <BlockCode>{data?.defaultCode}</BlockCode>} <br />
 			<br />
 
 			{/* Examples */}
