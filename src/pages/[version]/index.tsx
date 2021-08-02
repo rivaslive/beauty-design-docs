@@ -9,7 +9,7 @@ const ComponentsPage = () => {
 	const router = useRouter();
 	React.useEffect(() => {
 		// TODO: Temporal redirect building...
-		router.replace('/[version]/components/getting-started');
+		router.replace('/v1/components/getting-started');
 	}, [router]);
 
 	return (

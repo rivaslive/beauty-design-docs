@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
+import marked from 'marked';
 import { gql } from '@apollo/client';
 
 import { client } from 'apollo/config';
@@ -65,7 +66,7 @@ const ProviderPage = ({ data }: PageProps) => {
 					key={api.id}
 					title={api.title}
 					items={api?.items || []}
-					description={api.description}
+					description={marked(api.description)}
 				/>
 			))}
 		</Layout>
