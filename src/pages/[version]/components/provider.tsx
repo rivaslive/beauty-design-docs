@@ -4,7 +4,7 @@ import marked from 'marked';
 import { gql } from '@apollo/client';
 import Head from 'next/head';
 
-import { client } from 'apollo/config';
+import { initializeApollo } from 'apollo/config';
 import { getIdComponent } from 'utils/getIdComponent';
 import { GET_COMPONENT_VERSION } from 'graphql/component.query';
 
@@ -17,6 +17,7 @@ import Table from 'components/Molecules/Table';
 import Example from 'components/Molecules/Example';
 
 const ProviderPage = ({ data }: PageProps) => {
+	if (!data) return null;
 	return (
 		<>
 			<Head>
@@ -78,20 +79,26 @@ const ProviderPage = ({ data }: PageProps) => {
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export async function getStaticPaths() {
-	const { data } = await client.query({
-		query: gql`
-			query {
-				versions {
-					id
-					version
+	const client = initializeApollo();
+	let paths = [];
+	try {
+		const { data } = await client.query({
+			query: gql`
+				query {
+					versions {
+						id
+						version
+					}
 				}
-			}
-		`,
-	});
+			`,
+		});
 
-	const paths = data.versions.map((v: any) => ({
-		params: v,
-	}));
+		paths = data.versions.map((v: any) => ({
+			params: v,
+		}));
+	} catch (e) {
+		console.log(e);
+	}
 
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
@@ -100,28 +107,38 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: any) {
 	let res = null;
+	const client = initializeApollo();
 	// Call an external API endpoint to get posts
-	const { data } = await client.query<IGraphComponentRes, IGraphComponentReq>({
-		query: GET_COMPONENT_VERSION,
-		variables: {
-			title: 'Provider',
-			version: params.version,
-		},
-	});
+	try {
+		const { data }: { data: IGraphComponentRes } = await client.query({
+			query: GET_COMPONENT_VERSION,
+			variables: {
+				title: 'Provider',
+				version: params.version,
+			},
+		});
 
-	if (data && data?.componentes) {
-		if (data.componentes.length) {
-			res = data.componentes[0];
+		if (data && data?.componentes) {
+			if (data.componentes.length) {
+				res = data.componentes[0];
+			}
 		}
-	}
 
-	// By returning { props: { data } }, the component
-	// will receive `data` as a prop at build time
-	return {
-		props: {
-			data: res,
-		},
-	};
+		// By returning { props: { data } }, the component
+		// will receive `data` as a prop at build time
+		return {
+			props: {
+				data: res,
+			},
+		};
+	} catch (e) {
+		console.log(e);
+		return {
+			props: {
+				data: null,
+			},
+		};
+	}
 }
 
 export default React.memo(ProviderPage);

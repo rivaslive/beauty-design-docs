@@ -10,12 +10,13 @@ import { ConfigProvider } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 
 // apollo
-import { client } from 'apollo/config';
+import { useApollo } from 'apollo/config';
 
 // Global styles
 import GlobalStyle from 'styles/general';
 
 function MyApp({ Component, pageProps }: AppProps) {
+	const client = useApollo(pageProps.initialApolloState);
 	return (
 		<>
 			<Head>
