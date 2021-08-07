@@ -39,9 +39,9 @@ const ProviderPage = ({ data }: PageProps) => {
 				<br />
 				{data?.defaultCode && <BlockCode>{data?.defaultCode}</BlockCode>} <br />
 				<br />
-				{/* Examples */}
+				{/* WhyBeautyUI */}
 				<Title id="Examples" variant="ROBOT_24_28_500" isLink>
-					Examples
+					WhyBeautyUI
 				</Title>
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos?.map((example) => (

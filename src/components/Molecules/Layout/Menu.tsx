@@ -2,7 +2,14 @@ import React from 'react';
 import { Menu } from 'antd';
 import Link from 'next/link';
 
+// menu
 import * as menuData from 'assets/menu';
+
+// components
+import Button from 'components/Atoms/Button';
+
+// styles
+import { StyleMenuHome, StyleMenuHomeItem } from './style';
 
 interface MenuPagesProps {
 	selectedKey: string;
@@ -37,12 +44,45 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 					}
 					return (
 						<Menu.Item key={menu.key}>
-							<Link href={`/${version}/components/${menu.key}`}>{menu.name}</Link>
+							<Link href={`/${version}/components/${menu.key}`}>
+								{menu.name}
+							</Link>
 						</Menu.Item>
 					);
 				})
 			}
 		</Menu>
+	);
+};
+
+export const MenuHome = ({ items }: any) => {
+	const last = items?.length - 1 || 0;
+	return (
+		<>
+			<StyleMenuHome mode="horizontal">
+				{items.map((i: any, index: number) => {
+					if (last === index) return null;
+					return (
+						<StyleMenuHomeItem key={i.key}>
+							<Link href={i?.href ? i.href : `#${i.key}`}>{i.name}</Link>
+						</StyleMenuHomeItem>
+					);
+				})}
+			</StyleMenuHome>
+			{items && items?.length && (
+				<Button variant="LANDING_CONTACT_DARK">
+					{
+						<Link
+							href={
+								items[last]?.href ? items[last].href : `#${items[last].key}`
+							}
+						>
+							{items[last].name}
+						</Link>
+					}
+				</Button>
+			)}
+		</>
 	);
 };
 

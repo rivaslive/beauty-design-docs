@@ -2,14 +2,23 @@ import { ReactNode } from 'react';
 import { Button, Typography } from 'antd';
 import styled, { css } from 'styled-components';
 import { TitleProps } from 'antd/lib/typography/Title';
-
+import { mediaQueries } from '../../../styles/theme/theme';
 
 const { Title } = Typography;
 
 export type VariantType =
 	| 'ROBOT_28_39_400'
 	| 'ROBOT_24_28_500'
-	| 'ROBOT_36_50_500';
+	| 'ROBOT_36_50_500'
+	| 'ROBOT_19_25_800'
+	| 'ROBOT_40_44_800'
+	| 'ROBOT_60_65_800'
+	| 'ROBOT_70_77_800'
+	| 'POPPINS_18_22_800'
+	| 'POPPINS_19_25_800'
+	| 'POPPINS_40_44_800'
+	| 'POPPINS_60_65_800'
+	| 'POPPINS_70_77_800';
 export type TextTransformType =
 	| 'uppercase'
 	| 'lowercase'
@@ -46,6 +55,61 @@ export const cssTitleVariant = {
 		font-size: 36px;
 		line-height: 50px;
 		font-weight: 500;
+	`,
+	ROBOT_19_25_800: css`
+		font-size: 19px;
+		line-height: 25px;
+		font-weight: 800;
+	`,
+	ROBOT_40_44_800: css`
+		font-size: 40px;
+		line-height: 44px;
+		font-weight: 800;
+	`,
+	ROBOT_60_65_800: css`
+		font-size: 60px;
+		line-height: 65px;
+		font-weight: 800;
+	`,
+	ROBOT_70_77_800: css`
+		font-size: 70px;
+		line-height: 70px;
+		font-weight: 800;
+	`,
+	POPPINS_18_22_800: css`
+		font-family: 'Poppins', sans-serif;
+		font-size: 18px;
+		line-height: 22px;
+		font-weight: 800;
+	`,
+	POPPINS_19_25_800: css`
+		font-family: 'Poppins', sans-serif;
+		font-size: 19px;
+		line-height: 25px;
+		font-weight: 800;
+	`,
+	POPPINS_40_44_800: css`
+		font-family: 'Poppins', sans-serif;
+		font-size: 40px;
+		line-height: 44px;
+		font-weight: 800;
+	`,
+	POPPINS_60_65_800: css`
+		font-family: 'Poppins', sans-serif;
+		font-size: 60px;
+		line-height: 65px;
+		font-weight: 800;
+	`,
+	POPPINS_70_77_800: css`
+		font-family: 'Poppins', sans-serif;
+		font-size: 50px;
+		line-height: 55px;
+		font-weight: 800;
+
+		${mediaQueries.minTablet} {
+			font-size: 70px;
+			line-height: 70px;
+		}
 	`,
 };
 

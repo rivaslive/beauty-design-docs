@@ -1,19 +1,16 @@
 import React from 'react';
-
-// components
-import Title from 'components/Atoms/Title';
 import { useRouter } from 'next/router';
+
+// version
+// components
+import HomeTemplate from 'components/Templates/Home';
 
 export default function Home() {
 	const router = useRouter();
 	React.useEffect(() => {
 		// TODO: Temporal redirect building...
-		router.replace('/v1/components');
+		// router.replace(`/${defaultVersion}/components/getting-started`);
 	}, [router]);
 
-	return (
-		<div>
-			<Title variant="ROBOT_36_50_500">Bienvenido a Beauty UI</Title>
-		</div>
-	);
+	return <HomeTemplate />;
 }

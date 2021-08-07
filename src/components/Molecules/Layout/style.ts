@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 // components
-import { Button, Input, Layout } from 'antd';
+import { Button, Input, Layout, Menu } from 'antd';
 import Title from 'components/Atoms/Title';
 
 // styles
-import { mediaQueries } from 'styles/theme/theme';
+import { colors, mediaQueries } from 'styles/theme/theme';
 
 const { Header, Sider, Content } = Layout;
 
@@ -13,24 +13,33 @@ export const StyleLayout = styled(Layout)`
 	overflow: hidden;
 `;
 
-export const StyleHead = styled(Header)`
+export const StyleHead = styled(Header)<{$isHome: boolean}>`
+	position: ${({ $isHome }) => $isHome ? 'relative' : 'sticky'};
+	background: ${({ $isHome }) => $isHome ? 'transparent' : '#fff'};
+	box-shadow: ${({ $isHome }) => $isHome ? 'none' : '0 2px 8px #f0f1f2'};
+	width: 100%;
+	padding: 0;
+	top: 0;
+	transition: all 350ms;
+	z-index: 10;
+`;
+
+export const StyleHeadContent = styled.div<{$isHome: boolean}>`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 100%;
-	background: #fff;
-	padding: 0 10px;
-	box-shadow: 0 2px 8px #f0f1f2;
-	z-index: 10;
+	width: 100%;
+	padding: 5px 10px;
 
 	${mediaQueries.minTablet} {
-		padding: 0 20px;
+		padding: 5px 20px;
 	}
 `;
 
 export const StyleBrand = styled.div`
-	display: flex;
-	align-items: center;
+		width: 100%;
+		display: flex;
+		align-items: center;
 `;
 
 export const ButtonGithub = styled(Button)`
@@ -122,12 +131,12 @@ export const StyleSider = styled(Sider)`
 		background: rgba(2, 164, 157, 0.08);
 
 		&:after {
-			border-right: 3px solid rgb(2, 164, 157);
+			border-right: 3px solid ${colors.primary};
 		}
 
 		.ant-menu-title-content {
 			* {
-				color: rgb(2, 164, 157);
+				color: ${colors.primary};
 			}
 		}
 	}
@@ -137,7 +146,7 @@ export const StyleSider = styled(Sider)`
 		.ant-menu-title-content {
 			&:hover {
 				* {
-					color: rgb(2, 164, 157);
+					color: ${colors.primary};
 				}
 			}
 		}
@@ -168,3 +177,57 @@ export const StyleAsideFooter = styled.div`
 	background: rgba(100, 100, 100, 0.05);
 	border-top: 1px solid #f0f0f0;
 `;
+
+export const StyleMenuHome = styled(Menu)`
+	&.ant-menu {
+		display: none;
+		width: 475px;
+		max-width: 100%;
+		justify-content: flex-end;
+
+		${mediaQueries.minTablet} {
+			display: flex;
+			justify-content: center;
+			flex: 1;
+		}
+
+		&.ant-menu-horizontal {
+			border-bottom: 0;
+			background: transparent;
+
+			.ant-menu-item {
+				color: rgba(100, 100, 100, 1);
+				font-weight: 600;
+			}
+
+			.ant-menu-item.ant-menu-item-selected {
+				&:after {
+					border-bottom: 2px solid ${colors.primary};
+				}
+
+				.ant-menu-title-content {
+					* {
+						color: ${colors.primary};
+					}
+				}
+			}
+
+
+			//Hover
+			.ant-menu-item.ant-menu-item-active {
+				&:after {
+					border-bottom: 2px solid ${colors.primary};
+				}
+				.ant-menu-title-content {
+					&:hover {
+						* {
+							color: ${colors.primary};
+						}
+					}
+				}
+			}
+		}
+	}
+`;
+
+export const StyleMenuHomeItem = styled(Menu.Item)``;

@@ -1,4 +1,6 @@
 import 'antd/dist/antd.css';
+import 'animate.css/animate.css';
+import 'slick-carousel/slick/slick.css';
 
 import React from 'react';
 import Head from 'next/head';

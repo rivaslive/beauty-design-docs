@@ -12,32 +12,15 @@ export type ColorVariant =
 	| 'primary'
 	| 'black'
 	| 'white'
-	| 'cian'
-	| 'celeste'
-	| 'azul'
-	| 'azure'
-	| 'azulVioleta'
-	| 'magenta'
-	| 'purpleBlue'
-	| 'purple1'
-	| 'purple2'
-	| 'bg';
+	| 'transparent'
+	| 'secondary';
 
 export const colors = {
-	primary: '#713DF9',
+	primary: '#02a79e',
+	secondary: '#8338ec',
 	black: '#000000',
 	white: '#FFFFFF',
-	cian: '#4DC7EB',
-	celeste: '#79DEF6',
-	azul: '#2740D6',
-	azure: '#8C00F8',
-	azure2: '#6E41E2',
-	azulVioleta: '#5C4CF4',
-	magenta: '#EB008A',
-	purpleBlue: '#A300EB',
-	purple1: '#CB00B6',
-	purple2: '#B600D4',
-	bg: '#f1f1f1',
+	transparent: 'transparent',
 };
 
 export const mediaQueries = {

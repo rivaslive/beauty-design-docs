@@ -6,7 +6,7 @@ import { fontNames } from './theme/theme';
 const GlobalStyle = createGlobalStyle`
 	${normalize}
 	body {
-		overflow: hidden;
+		overflow-x: hidden;
 		font-family: ${fontNames.roboto} !important;
 		scroll-behavior: smooth;
 		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
