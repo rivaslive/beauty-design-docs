@@ -4,7 +4,11 @@ import { useRouter } from 'next/router';
 // menu
 import * as menuData from 'assets/menu';
 
+// components
+import AlertBanner from 'components/Atoms/AlertBanner';
+
 // styles
+import GlobalStyle from 'styles/general';
 import {
 	StyleAsideFooter,
 	StyleContent,
@@ -41,6 +45,11 @@ const Layout = ({ children }: IProps) => {
 
 	return (
 		<StyleLayout>
+			<GlobalStyle $isHome={false}/>
+			<AlertBanner
+				message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
+				banner
+			/>
 			<Navbar />
 			<StyleLayout>
 				<StyleSider

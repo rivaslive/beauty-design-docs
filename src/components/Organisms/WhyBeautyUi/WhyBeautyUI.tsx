@@ -6,6 +6,9 @@ import useSlick from 'hooks/useSlick';
 // components
 import { WhyCard } from 'components/Molecules/Cards';
 
+// data
+import mockData from './mock.json';
+
 // styles
 import {
 	StyleContentSlick,
@@ -29,7 +32,8 @@ const WhyBeautyUI = (props: IProps) => {
 			className: 'active',
 			centerMode: true,
 			infinite: true,
-			centerPadding: "20px",
+			centerPadding: '20px',
+			adaptiveHeight: true,
 			slidesToShow: 3,
 			slidesPerRow: 1,
 			speed: 500,
@@ -38,9 +42,9 @@ const WhyBeautyUI = (props: IProps) => {
 					breakpoint: 768,
 					settings: {
 						slidesToShow: 1,
-					}
-				}
-			]
+					},
+				},
+			],
 		};
 	}, [defaultSettings]);
 	return (
@@ -50,54 +54,15 @@ const WhyBeautyUI = (props: IProps) => {
 				<StyleTitle variant="POPPINS_70_77_800">Why Beauty UI?</StyleTitle>
 				<StyleContentSlick>
 					<Slick ref={ref} {...settings}>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
-						<WhyCard
-							className="why-card"
-							image="https://icons-for-free.com/iconfiles/png/512/green+lock+privacy+safe+secure+security+icon-1320196713520107078.png"
-							title="Fast Building"
-							summary="The fast building React Native app"
-						/>
+						{mockData.map(({ id, summary, title, image }) => (
+							<WhyCard
+								key={id}
+								image={image}
+								title={title}
+								summary={summary}
+								className="why-card"
+							/>
+						))}
 					</Slick>
 				</StyleContentSlick>
 			</StyleContentTitle>

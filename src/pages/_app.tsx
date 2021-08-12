@@ -12,9 +12,6 @@ import enUS from 'antd/lib/locale/en_US';
 // apollo
 import { useApollo } from 'apollo/config';
 
-// Global styles
-import GlobalStyle from 'styles/general';
-
 function MyApp({ Component, pageProps }: AppProps) {
 	const client = useApollo(pageProps.initialApolloState);
 	return (
@@ -31,7 +28,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 					<Component {...pageProps} />
 				</ConfigProvider>
 			</ApolloProvider>
-			<GlobalStyle />
 		</>
 	);
 }

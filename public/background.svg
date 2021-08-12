@@ -1,14 +1,14 @@
-<svg width="784" height="1015" viewBox="0 0 784 1015" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M784 -1.58827e-06L784 185L784 547L688.315 741.231C673.459 771.386 636.73 783.454 606.884 767.986L74.6912 492.177C45.4978 477.048 33.9199 441.24 48.7289 411.883L256.5 -2.52718e-05L784 -1.58827e-06Z" fill="#02A49D"/>
-<path d="M784 -1.58827e-06L784 185L784 547L688.315 741.231C673.459 771.386 636.73 783.454 606.884 767.986L74.6912 492.177C45.4978 477.048 33.9199 441.24 48.7289 411.883L256.5 -2.52718e-05L784 -1.58827e-06Z" fill="url(#pattern0)"/>
+<svg width="780" height="1007" viewBox="0 0 780 1007" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M780 -1.58827e-06L780 185L780 547L684.315 741.231C669.459 771.386 632.73 783.454 602.884 767.986L70.6912 492.177C41.4978 477.048 29.9199 441.24 44.7289 411.883L252.5 -2.52718e-05L780 -1.58827e-06Z" fill="#FFBE0B"/>
+<path d="M780 -1.58827e-06L780 185L780 547L684.315 741.231C669.459 771.386 632.73 783.454 602.884 767.986L70.6912 492.177C41.4978 477.048 29.9199 441.24 44.7289 411.883L252.5 -2.52718e-05L780 -1.58827e-06Z" fill="url(#pattern0)"/>
 <g filter="url(#filter0_d)">
-<rect x="358.309" y="237" width="342.877" height="691.322" rx="55" transform="rotate(30.8162 358.309 237)" fill="url(#pattern1)" shape-rendering="crispEdges"/>
+<rect x="354.309" y="237" width="342.877" height="691.322" rx="55" transform="rotate(30.8162 354.309 237)" fill="url(#pattern1)" shape-rendering="crispEdges"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1.43724" height="0.0825305">
 <use xlink:href="#image0" transform="scale(0.00137798)"/>
 </pattern>
-<filter id="filter0_d" x="0.154541" y="237" width="656.622" height="777.368" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d" x="16.5566" y="257.402" width="615.818" height="736.564" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>

@@ -16,7 +16,7 @@ module.exports = {
 		'react/prop-types': 0,
 		'no-unused-vars': 0, // Temporal
 		'react-hooks/rules-of-hooks': 'error',
-		'no-console': 'warn',
+		'no-console': 0,
 		'promise/catch-or-return': 0,
 		'jsx-a11y/click-events-have-key-events': 0,
 		'import/no-extraneous-dependencies': 0,

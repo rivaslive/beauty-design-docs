@@ -30,14 +30,12 @@ const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 	return (
 		<StyleHead $isHome={isSolid} theme="light">
 			<StyleHeadContent $isHome={isSolid}>
-				<Link href="/" passHref>
-					<a>
-						<StyleBrand>
-							<Image src={Brand} height={50} width={65} objectFit="contain" />
-							<StyleTitle variant="ROBOT_24_28_500">Beauty UI</StyleTitle>
-						</StyleBrand>
-					</a>
-				</Link>
+				<a href="/">
+					<StyleBrand>
+						<Image src={Brand} height={50} width={65} objectFit="contain" />
+						<StyleTitle variant="ROBOT_24_28_500">Beauty UI</StyleTitle>
+					</StyleBrand>
+				</a>
 				{!isHome ? (
 					<>
 						<StyleInputSearch placeholder="Search..." bordered={false} />

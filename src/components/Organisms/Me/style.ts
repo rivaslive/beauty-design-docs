@@ -9,12 +9,13 @@ import { colors, mediaQueries } from 'styles/theme/theme';
 export const StyleMe = styled.div`
 	margin: 70px auto;
 	width: 90%;
-	padding: 20px 10px;
+	padding: 30px 10px 50px;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	background: rgb(100, 100, 100, .03);
 
 	${mediaQueries.minTablet} {
 		flex-direction: row;

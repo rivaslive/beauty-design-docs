@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyleWhyCard = styled.div<{ $isExample: boolean }>`
-	height: 300px;
+	min-height: 300px;
 	padding: ${({ $isExample }) => ($isExample ? '10px 30px' : '30px')};
 	border-radius: 16px;
 	text-align: center;

@@ -1,8 +1,9 @@
 import React from 'react';
+import { LinkedinOutlined } from '@ant-design/icons';
 
 // components
 import Imagen from 'components/Atoms/Imagen';
-import Title from 'components/Atoms/Title';
+import Button from 'components/Atoms/Button';
 
 // styles
 import { StyleContent, StyleImage, StyleMe, StyleTitle } from './style';
@@ -18,6 +19,18 @@ const Me = (props: IProps) => {
 				<StyleTitle className="color-secondary" variant="POPPINS_19_25_800">
 					ING. KEVIN RIVAS
 				</StyleTitle>
+				<br />
+				<Button variant="LANDING_GRADIENT_CIAN">
+					<a
+						href="https://www.linkedin.com/in/kevin-rivas-frontend-developer"
+						rel="noreferrer noopener"
+						target="_blank"
+					>
+						<span style={{ color: 'white', fontSize: 20 }}>
+							<LinkedinOutlined /> Linkedin
+						</span>
+					</a>
+				</Button>
 			</StyleContent>
 			<StyleImage>
 				<Imagen

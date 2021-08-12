@@ -15,7 +15,6 @@ export const StyleMe = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: rgb(100, 100, 100, .03);
 
 	${mediaQueries.minTablet} {
 		flex-direction: row;
@@ -56,7 +55,7 @@ export const StyleWrapperImages = styled.div`
 	margin-top: 30px;
 
 	.img {
-		margin-right: 10px;
+		margin-right: 20px;
 	}
 `;
 

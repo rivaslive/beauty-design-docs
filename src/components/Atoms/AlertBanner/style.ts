@@ -1,15 +1,6 @@
-import { Layout, Alert } from 'antd';
 import styled from 'styled-components';
-import { mediaQueries } from '../../../styles/theme/theme';
-
-export const StyleHome = styled(Layout)``;
-
-export const StyleContent = styled(Layout.Content)`
-	padding: 0;
-	background: white;
-	scroll-behavior: smooth;
-	margin-top: -65px;
-`;
+import { Alert } from 'antd';
+import { mediaQueries } from 'styles/theme/theme';
 
 export const StyleAlert = styled(Alert)`
 	&.ant-alert {

@@ -62,6 +62,13 @@ export const MenuHome = ({ items }: any) => {
 			<StyleMenuHome mode="horizontal">
 				{items.map((i: any, index: number) => {
 					if (last === index) return null;
+					if (i.key === 'documentation') {
+						return (
+							<StyleMenuHomeItem key={i.key}>
+								<a href={i?.href}>{i.name}</a>
+							</StyleMenuHomeItem>
+						);
+					}
 					return (
 						<StyleMenuHomeItem key={i.key}>
 							<Link href={i?.href ? i.href : `#${i.key}`}>{i.name}</Link>

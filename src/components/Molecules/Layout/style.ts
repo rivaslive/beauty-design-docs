@@ -154,7 +154,8 @@ export const StyleSider = styled(Sider)`
 `;
 
 export const StyleContent = styled(Content)`
-	height: calc(100vh - 64px);
+	//height: calc(100vh - 64px);
+	height: calc(100vh - 100px);
 	flex: 0 0 100%;
 	padding: 10px 10px 100px;
 	background: white;

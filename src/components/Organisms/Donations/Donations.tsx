@@ -54,17 +54,17 @@ const Donations = (props: IProps) => {
 					<Tooltip title="Opencolletive">
 						<Imagen
 							className="img"
-							width={50}
-							height={50}
+							width={40}
+							height={40}
 							src="https://opencollective-production.s3-us-west-1.amazonaws.com/8aa714c0-79fa-11e7-9a37-35a8ed456d67.png"
 						/>
 					</Tooltip>
 					<Tooltip title="stripe">
 						<Imagen
 							className="img"
-							width={150}
-							height={55}
-							src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png"
+							width={110}
+							height={40}
+							src="https://mms.businesswire.com/media/20210605005045/en/883168/5/strike_logo_black.jpg?download=1"
 						/>
 					</Tooltip>
 				</StyleWrapperImages>

@@ -7,6 +7,7 @@ import { defaultVersion } from 'utils/defaultVersion';
 import Me from 'components/Organisms/Me';
 import Footer from 'components/Organisms/Footer';
 import Examples from 'components/Organisms/Examples';
+import AlertBanner from 'components/Atoms/AlertBanner';
 import Donations from 'components/Organisms/Donations';
 import NightMode from 'components/Organisms/NightMode';
 import Navbar from 'components/Molecules/Layout/Navbar';
@@ -14,6 +15,7 @@ import BannerHome from 'components/Organisms/BannerHome';
 import WhyBeautyUI from 'components/Organisms/WhyBeautyUi';
 
 // styles
+import GlobalStyle from 'styles/general';
 import { StyleContent, StyleHome } from './styles';
 
 const menuHome = [
@@ -36,7 +38,7 @@ const menuHome = [
 	{
 		name: 'Documentation',
 		key: 'documentation',
-		href: `/${defaultVersion}/components/getting-started`,
+		href: `/${defaultVersion}/getting-started`,
 	},
 	{
 		name: 'Github',
@@ -51,8 +53,14 @@ const menuHome = [
 
 const HomeTemplate = () => {
 	const { scrollPositionAtTop } = useScrollDirection(true, 0, 200);
+
 	return (
 		<StyleHome id="home">
+			<GlobalStyle $isHome={true}/>
+			<AlertBanner
+				message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
+				banner
+			/>
 			<Navbar isHome isSolid={scrollPositionAtTop} menu={menuHome} />
 			<StyleHome>
 				<StyleContent>

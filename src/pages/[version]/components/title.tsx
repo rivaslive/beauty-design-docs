@@ -1,19 +1,19 @@
 import React from 'react';
-import { gql } from '@apollo/client';
-import { Col, Row } from 'antd';
 import Head from 'next/head';
+import { Col, Row } from 'antd';
+import { gql } from '@apollo/client';
 
 import { initializeApollo } from 'apollo/config';
 import { GET_COMPONENT_VERSION } from 'graphql/component.query';
 
 // components
-import Layout from 'components/Molecules/Layout';
-import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
+import Title from 'components/Atoms/Title';
+import Layout from 'components/Molecules/Layout';
 import { BlockCode } from 'components/Atoms/Code';
-import Example from 'components/Molecules/Example/Example';
-import { getIdComponent } from 'utils/getIdComponent';
 import Table from 'components/Molecules/Table/Table';
+import { getIdComponent } from 'utils/getIdComponent';
+import Example from 'components/Molecules/Example/Example';
 
 const TitlePage = ({ data }: PageProps) => {
 	if (!data) return null;

@@ -1,12 +1,13 @@
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-
 import { fontNames } from './theme/theme';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ $isHome: boolean }>`
 	${normalize}
 	body {
 		overflow-x: hidden;
+		overflow-y: ${({ $isHome }) => ($isHome ? 'scroll' : 'hidden')};
 		font-family: ${fontNames.roboto} !important;
 		scroll-behavior: smooth;
 		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
