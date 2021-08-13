@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Row } from 'antd';
+import { GetServerSideProps } from 'next';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
-import { getPathsComponent, getServerSideProps } from 'utils/getServerSide';
+import { getServerSidePropsComponent } from 'utils/getServerSide';
 
 // components
 import Text from 'components/Atoms/Text';
@@ -44,18 +45,18 @@ const BadgePage = ({ data }: PageProps) => {
 				</Title>
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos &&
-					data?.ejemplos?.map((example) => (
-						<Col xs={24} md={12}>
-							<Example
-								key={example.id}
-								id={getIdComponent(example.title)}
-								image={example?.imagen?.url}
-								title={example.title}
-								summary={example.description}
-								code={example.code}
-							/>
-						</Col>
-					))}
+						data?.ejemplos?.map((example) => (
+							<Col xs={24} md={12}>
+								<Example
+									key={example.id}
+									id={getIdComponent(example.title)}
+									image={example?.imagen?.url}
+									title={example.title}
+									summary={example.description}
+									code={example.code}
+								/>
+							</Col>
+						))}
 				</Row>
 				<br />
 				{/* Api */}
@@ -64,26 +65,21 @@ const BadgePage = ({ data }: PageProps) => {
 				</Title>
 				<br />
 				{data?.apis &&
-				data?.apis?.map((api) => (
-					<Table
-						key={api.id}
-						title={api.title}
-						items={api?.items || []}
-						description={api.description}
-					/>
-				))}
+					data?.apis?.map((api) => (
+						<Table
+							key={api.id}
+							title={api.title}
+							items={api?.items || []}
+							description={api.description}
+						/>
+					))}
 			</Layout>
 		</>
 	);
 };
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
-export async function getStaticPaths() {
-	return await getPathsComponent();
-}
-
-export async function getStaticProps({ params }: any) {
-	return await getServerSideProps('Badge', params?.version || 'v1');
-}
-
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+	return await getServerSidePropsComponent('Badge', params?.version || 'v1');
+};
 export default React.memo(BadgePage);

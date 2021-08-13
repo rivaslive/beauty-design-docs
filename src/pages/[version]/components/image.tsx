@@ -1,10 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Row } from 'antd';
+import { GetServerSideProps } from 'next';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
-import { getPathsComponent, getServerSideProps } from 'utils/getServerSide';
+import { getServerSidePropsComponent } from 'utils/getServerSide';
 
 // components
 import Text from 'components/Atoms/Text';
@@ -78,12 +79,9 @@ const ImagePage = ({ data }: PageProps) => {
 };
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
-export async function getStaticPaths() {
-	return await getPathsComponent();
-}
 
-export async function getStaticProps({ params }: any) {
-	return await getServerSideProps('Image', params?.version || 'v1');
-}
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+	return await getServerSidePropsComponent('Image', params?.version || 'v1');
+};
 
 export default React.memo(ImagePage);

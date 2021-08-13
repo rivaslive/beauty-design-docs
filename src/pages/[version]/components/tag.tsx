@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
-import { getPathsComponent, getServerSideProps } from 'utils/getServerSide';
+import { getServerSidePropsComponent } from 'utils/getServerSide';
 
 // components
 import Text from 'components/Atoms/Text';
@@ -14,6 +14,7 @@ import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table/Table';
 import Example from 'components/Molecules/Example/Example';
 import BuildingPage from 'components/Organisms/BuildingPage';
+import { GetServerSideProps } from 'next';
 
 const TagPage = ({ data }: PageProps) => {
 	if (!data) return <BuildingPage />;
@@ -78,12 +79,9 @@ const TagPage = ({ data }: PageProps) => {
 };
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
-export async function getStaticPaths() {
-	return await getPathsComponent();
-}
 
-export async function getStaticProps({ params }: any) {
-	return await getServerSideProps('Tag', params?.version || 'v1');
-}
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+	return await getServerSidePropsComponent('Tag', params?.version || 'v1');
+};
 
 export default React.memo(TagPage);
