@@ -81,7 +81,8 @@ export const StyleInputSearch = styled(Input)`
 export const StyleSider = styled(Sider)`
 	&.ant-layout-sider {
 		.ant-layout-sider-children {
-			height: calc(100vh - 64px);
+			//height: calc(100vh - 64px);
+			height: calc(100vh - 100px);
 			overflow-y: auto;
 
 			&::-webkit-scrollbar {

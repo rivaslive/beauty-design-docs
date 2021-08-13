@@ -12,6 +12,9 @@ import enUS from 'antd/lib/locale/en_US';
 // apollo
 import { useApollo } from 'apollo/config';
 
+// components
+import NProgress from 'components/Atoms/NProgress';
+
 function MyApp({ Component, pageProps }: AppProps) {
 	const client = useApollo(pageProps.initialApolloState);
 	return (
@@ -25,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 			<ApolloProvider client={client}>
 				<ConfigProvider locale={enUS}>
+					<NProgress />
 					<Component {...pageProps} />
 				</ConfigProvider>
 			</ApolloProvider>
