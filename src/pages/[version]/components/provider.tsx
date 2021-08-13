@@ -1,12 +1,10 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import marked from 'marked';
-import { gql } from '@apollo/client';
 import Head from 'next/head';
 
-import { initializeApollo } from 'apollo/config';
 import { getIdComponent } from 'utils/getIdComponent';
-import { GET_COMPONENT_VERSION } from 'graphql/component.query';
+import { getPathsComponent, getServerSideProps } from 'utils/getServerSide';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -15,13 +13,14 @@ import Text from 'components/Atoms/Text';
 import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table';
 import Example from 'components/Molecules/Example';
+import BuildingPage from 'components/Organisms/BuildingPage';
 
 const ProviderPage = ({ data }: PageProps) => {
-	if (!data) return null;
+	if (!data) return <BuildingPage />;
 	return (
 		<>
 			<Head>
-				<title>Provider - react-native-beauty-ui</title>
+				<title>Provider - React Native Beauty UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}
@@ -42,7 +41,7 @@ const ProviderPage = ({ data }: PageProps) => {
 				<br />
 				{/* WhyBeautyUI */}
 				<Title id="Examples" variant="ROBOT_24_28_500" isLink>
-					WhyBeautyUI
+					Examples
 				</Title>
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos?.map((example) => (
@@ -79,66 +78,11 @@ const ProviderPage = ({ data }: PageProps) => {
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export async function getStaticPaths() {
-	const client = initializeApollo();
-	let paths = [];
-	try {
-		const { data } = await client.query({
-			query: gql`
-				query {
-					versions {
-						id
-						version
-					}
-				}
-			`,
-		});
-
-		paths = data.versions.map((v: any) => ({
-			params: v,
-		}));
-	} catch (e) {
-		console.log(e);
-	}
-
-	// We'll pre-render only these paths at build time.
-	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
+	return await getPathsComponent();
 }
 
 export async function getStaticProps({ params }: any) {
-	let res = null;
-	const client = initializeApollo();
-	// Call an external API endpoint to get posts
-	try {
-		const { data }: { data: IGraphComponentRes } = await client.query({
-			query: GET_COMPONENT_VERSION,
-			variables: {
-				title: 'Provider',
-				version: params.version,
-			},
-		});
-
-		if (data && data?.componentes) {
-			if (data.componentes.length) {
-				res = data.componentes[0];
-			}
-		}
-
-		// By returning { props: { data } }, the component
-		// will receive `data` as a prop at build time
-		return {
-			props: {
-				data: res,
-			},
-		};
-	} catch (e) {
-		console.log(e);
-		return {
-			props: {
-				data: null,
-			},
-		};
-	}
+	return await getServerSideProps('Provider', params?.version || 'v1');
 }
 
 export default React.memo(ProviderPage);

@@ -25,7 +25,7 @@ const GettingStartedPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Getting started - react-native-beauty-ui</title>
+				<title>Getting started - React Native Beauty UI</title>
 			</Head>
 			<Layout>
 				<Title variant="ROBOT_36_50_500">Getting Started</Title>

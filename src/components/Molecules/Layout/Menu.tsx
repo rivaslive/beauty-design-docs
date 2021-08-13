@@ -32,13 +32,25 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 					if (menu?.type === 'divider') {
 						return (
 							<Menu.ItemGroup key={menu.key} title={menu.name}>
-								{menu?.children?.map((child: any) => (
-									<Menu.Item key={child.key}>
-										<Link href={`/${version}/components/${child.key}`}>
-											{child.name}
-										</Link>
-									</Menu.Item>
-								))}
+								{menu?.children?.map((child: any) => {
+									if (child.key === 'getting-started') {
+										return (
+											<Menu.Item key={child.key}>
+												<Link href={`/${version}/${child.key}`}>
+													{child.name}
+												</Link>
+											</Menu.Item>
+										);
+									} else {
+										return (
+											<Menu.Item key={child.key}>
+												<Link href={`/${version}/components/${child.key}`}>
+													{child.name}
+												</Link>
+											</Menu.Item>
+										);
+									}
+								})}
 							</Menu.ItemGroup>
 						);
 					}
@@ -54,6 +66,8 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 		</Menu>
 	);
 };
+
+export default React.memo(MenuPages);
 
 export const MenuHome = ({ items }: any) => {
 	const last = items?.length - 1 || 0;
@@ -92,5 +106,3 @@ export const MenuHome = ({ items }: any) => {
 		</>
 	);
 };
-
-export default React.memo(MenuPages);
