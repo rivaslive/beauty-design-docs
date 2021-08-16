@@ -21,7 +21,7 @@ const TitlePage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Title - React Native Beauty UI</title>
+				<title>Title - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

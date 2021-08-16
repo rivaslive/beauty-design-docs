@@ -21,7 +21,7 @@ const ProviderPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Provider - React Native Beauty UI</title>
+				<title>Provider - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

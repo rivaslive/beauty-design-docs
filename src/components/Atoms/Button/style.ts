@@ -18,11 +18,11 @@ interface IProps extends ButtonProps {
 const cssVariants = {
 	LANDING_CONTACT_DARK: css`
 		border-radius: 20px;
-		background: ${colors.primary};
+		background: ${colors.secondary};
 		border: 1px solid transparent;
 		color: white;
 		&:hover {
-			box-shadow: 2px 2px 12px 0 ${colors.primary};
+			box-shadow: 2px 2px 12px 0 ${colors.secondary};
 		}
 	`,
 	LANDING_GRADIENT_CIAN: css`

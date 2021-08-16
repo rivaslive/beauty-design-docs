@@ -36,7 +36,7 @@ const BannerHome = (props: IProps) => {
 					Best React Native framework UI
 				</StyleTitle>
 				<StyleText className="animate__animated animate__fadeIn animate__faster">
-					react-native-beauty-ui offers a very nice and modern interface that
+					Wano offers a very nice and modern interface that
 					allows you to create native applications quickly and beautifully
 				</StyleText>
 				<StyleCTA className="animate__animated animate__fadeIn animate__delay-2s">

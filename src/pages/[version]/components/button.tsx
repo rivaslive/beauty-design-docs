@@ -21,7 +21,7 @@ const ButtonPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Button - React Native Beauty UI</title>
+				<title>Button - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

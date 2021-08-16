@@ -21,7 +21,7 @@ const CommentPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Comment - React Native Beauty UI</title>
+				<title>Comment - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

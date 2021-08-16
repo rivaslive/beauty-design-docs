@@ -21,7 +21,7 @@ const CardPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Card - React Native Beauty UI</title>
+				<title>Card - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

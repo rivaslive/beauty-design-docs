@@ -21,7 +21,7 @@ const BadgePage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Badge - React Native Beauty UI</title>
+				<title>Badge - Wano Beauty UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

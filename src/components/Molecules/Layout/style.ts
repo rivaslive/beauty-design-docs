@@ -204,12 +204,12 @@ export const StyleMenuHome = styled(Menu)`
 
 			.ant-menu-item.ant-menu-item-selected {
 				&:after {
-					border-bottom: 2px solid ${colors.primary};
+					border-bottom: 2px solid ${colors.secondary};
 				}
 
 				.ant-menu-title-content {
 					* {
-						color: ${colors.primary};
+						color: ${colors.secondary};
 					}
 				}
 			}
@@ -218,12 +218,12 @@ export const StyleMenuHome = styled(Menu)`
 			//Hover
 			.ant-menu-item.ant-menu-item-active {
 				&:after {
-					border-bottom: 2px solid ${colors.primary};
+					border-bottom: 2px solid ${colors.secondary};
 				}
 				.ant-menu-title-content {
 					&:hover {
 						* {
-							color: ${colors.primary};
+							color: ${colors.secondary};
 						}
 					}
 				}

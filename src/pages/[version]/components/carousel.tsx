@@ -21,7 +21,7 @@ const CarouselPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Carousel - React Native Beauty UI</title>
+				<title>Carousel - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

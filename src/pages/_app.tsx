@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
-				<title>React Native Beauty UI</title>
+				<title>Wano UI</title>
 			</Head>
 			<ApolloProvider client={client}>
 				<ConfigProvider locale={enUS}>

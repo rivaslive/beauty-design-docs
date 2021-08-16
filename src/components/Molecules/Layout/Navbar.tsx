@@ -33,7 +33,7 @@ const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 				<a href="/">
 					<StyleBrand>
 						<Image src={Brand} height={50} width={65} objectFit="contain" />
-						<StyleTitle variant="ROBOT_24_28_500">Beauty UI</StyleTitle>
+						<StyleTitle variant="ROBOT_24_28_500">Wano</StyleTitle>
 					</StyleBrand>
 				</a>
 				{!isHome ? (

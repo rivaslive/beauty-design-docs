@@ -21,7 +21,7 @@ const AvatarPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Avatar - React Native Beauty UI</title>
+				<title>Avatar - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

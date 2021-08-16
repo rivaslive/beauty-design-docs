@@ -21,7 +21,7 @@ const ImagePage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Image - React Native Beauty UI</title>
+				<title>Image - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}

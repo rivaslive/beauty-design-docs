@@ -21,7 +21,7 @@ const TagPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Tag - React Native Beauty UI</title>
+				<title>Tag - Wano UI</title>
 			</Head>
 			<Layout>
 				{/* provider */}
