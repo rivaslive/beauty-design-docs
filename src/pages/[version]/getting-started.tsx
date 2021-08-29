@@ -31,7 +31,7 @@ const GettingStartedPage = () => {
 				<Title variant="ROBOT_36_50_500">Getting Started</Title>
 				<Text
 					variant="ROBOT_14_28_400"
-					html={`<b>react-native-beauty-ui</b> is a library of UI components for React Native, compatible in Expo as React Native CLI, in this package you will find many elements created so that you can use them instantly, the main objective was always to offer a range of components that can be reused and that have an incredible design, I hope you like it.`}
+					html={`<b>beauty-design</b> is a library of UI components for <b>React Native</b>, compatible in Expo as React Native CLI, in this package you will find many elements created so that you can use them instantly, the main objective was always to offer a range of components that can be reused and that have an incredible design, I hope you like it.`}
 				/>
 
 				{/* animation */}

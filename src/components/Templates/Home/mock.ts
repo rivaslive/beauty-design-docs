@@ -6,7 +6,7 @@ export const menuHome = [
 		key: 'home',
 	},
 	{
-		name: 'Why beauty ui?',
+		name: 'Why Beauty Design?',
 		key: 'why-beauty-ui',
 	},
 	{

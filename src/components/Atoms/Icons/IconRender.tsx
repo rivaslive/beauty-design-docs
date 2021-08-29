@@ -14,7 +14,7 @@ interface IconProps {
 const IconRender = ({ icon: Custom, ...rest }: IconProps) => {
 	return (
 		<Icon
-			component={(props) => {
+			component={(props: any) => {
 				return <Custom {...props} {...rest} />;
 			}}
 		/>

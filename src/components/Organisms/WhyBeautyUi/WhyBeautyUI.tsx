@@ -51,7 +51,7 @@ const WhyBeautyUI = (props: IProps) => {
 		<StyleSeccondSection {...props}>
 			<StyleContentTitle>
 				<StyleSubTitle variant="POPPINS_40_44_800">What we do</StyleSubTitle>
-				<StyleTitle variant="POPPINS_70_77_800">Why Beauty UI?</StyleTitle>
+				<StyleTitle variant="POPPINS_70_77_800">Why Beauty Design?</StyleTitle>
 				<StyleContentSlick>
 					<Slick ref={ref} {...settings}>
 						{mockData.map(({ id, summary, title, image }) => (

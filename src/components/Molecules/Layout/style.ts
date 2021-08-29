@@ -13,12 +13,12 @@ export const StyleLayout = styled(Layout)`
 	overflow: hidden;
 `;
 
-export const StyleHead = styled(Header)<{$isHome: boolean}>`
+export const StyleHead = styled(Header)<{$isHome: boolean, $isHome2: boolean}>`
 	position: ${({ $isHome }) => $isHome ? 'relative' : 'sticky'};
 	background: ${({ $isHome }) => $isHome ? 'transparent' : '#fff'};
 	box-shadow: ${({ $isHome }) => $isHome ? 'none' : '0 2px 8px #f0f1f2'};
 	width: 100%;
-	padding: 0;
+	padding: ${({ $isHome2 }) => $isHome2 ? '0' : '10px 0'};
 	top: 0;
 	transition: all 350ms;
 	z-index: 10;

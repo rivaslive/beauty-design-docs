@@ -1,10 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { GithubOutlined } from '@ant-design/icons';
 
 // brand
-import Brand from '../../../../public/brand.svg';
+import Brand from '../../../../public/favicon.png';
 
 // components
 import {
@@ -16,6 +15,7 @@ import {
 	StyleTitle,
 } from './style';
 import { MenuHome } from './Menu';
+import { repoUrl } from '../../../utils/getGithub';
 
 interface IProps {
 	isHome?: boolean;
@@ -28,21 +28,24 @@ interface IProps {
 
 const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 	return (
-		<StyleHead $isHome={isSolid} theme="light">
+		<StyleHead $isHome={isSolid} $isHome2={isHome} theme="light">
 			<StyleHeadContent $isHome={isSolid}>
 				<a href="/">
 					<StyleBrand>
-						<Image src={Brand} height={50} width={65} objectFit="contain" />
-						<StyleTitle variant="ROBOT_24_28_500">Wano</StyleTitle>
+						<Image src={Brand} height={30} width={40} objectFit="contain" />
+						<StyleTitle variant="ROBOT_24_28_500">Beauty Design</StyleTitle>
 					</StyleBrand>
 				</a>
 				{!isHome ? (
 					<>
 						<StyleInputSearch placeholder="Search..." bordered={false} />
+						{/* Github */}
 						<ButtonGithub type="link">
-							<StyleTitle variant="ROBOT_24_28_500">
-								<GithubOutlined /> Github
-							</StyleTitle>
+							<a href={repoUrl} target="_blank" rel="noreferrer noopener">
+								<StyleTitle variant="ROBOT_24_28_500">
+									<GithubOutlined /> Github
+								</StyleTitle>
+							</a>
 						</ButtonGithub>
 					</>
 				) : (

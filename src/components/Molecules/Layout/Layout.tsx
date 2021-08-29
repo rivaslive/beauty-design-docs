@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import * as menuData from 'assets/menu';
 
 // components
+import MenuPages from './Menu';
+import Navbar from './Navbar';
 import AlertBanner from 'components/Atoms/AlertBanner';
 
 // styles
@@ -15,8 +17,6 @@ import {
 	StyleLayout,
 	StyleSider,
 } from './style';
-import MenuPages from './Menu';
-import Navbar from './Navbar';
 
 interface IProps {
 	children: React.ReactNode;

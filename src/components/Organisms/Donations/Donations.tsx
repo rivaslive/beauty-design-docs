@@ -45,7 +45,7 @@ const Donations = (props: IProps) => {
 			</StyleImage>
 			<StyleContent>
 				<StyleTitle variant="POPPINS_70_77_800">Do you like</StyleTitle>
-				<StyleTitle variant="POPPINS_40_44_800">Beauty UI a lot?</StyleTitle>
+				<StyleTitle variant="POPPINS_40_44_800">Beauty Design a lot?</StyleTitle>
 				<Text className="content" variant="ROBOT_20_25_400">
 					You can help us to continue maintaining this incredible library, you
 					can give me your financial support from the following platforms.
