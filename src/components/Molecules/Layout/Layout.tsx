@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import * as menuData from 'assets/menu';
 
 // components
+import AlertBanner from 'components/Atoms/AlertBanner';
+import GlobalStyle from 'styles/general';
 import MenuPages from './Menu';
 import Navbar from './Navbar';
-import AlertBanner from 'components/Atoms/AlertBanner';
 
 // styles
-import GlobalStyle from 'styles/general';
 import {
 	StyleAsideFooter,
 	StyleContent,
