@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Row } from 'antd';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
-import { getServerSidePropsComponent } from 'utils/getServerSide';
+import { getStaticsPropsComponent } from 'utils/getServerSide';
 
 // components
 import Text from 'components/Atoms/Text';
@@ -79,8 +79,15 @@ const CardPage = ({ data }: PageProps) => {
 };
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	return await getServerSidePropsComponent('Card', params?.version || 'v1');
+export async function getStaticPaths() {
+	return {
+		paths: [],
+		fallback: true,
+	};
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	return await getStaticsPropsComponent('Card', params?.version || 'v1');
 };
 
 export default React.memo(CardPage);

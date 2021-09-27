@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { Col, Row } from 'antd';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
-import { getServerSidePropsComponent } from 'utils/getServerSide';
+import { getStaticsPropsComponent } from 'utils/getServerSide';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -79,8 +79,15 @@ const TextPage = ({ data }: PageProps) => {
 	);
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	return await getServerSidePropsComponent('Text', params?.version || 'v1');
+export async function getStaticPaths() {
+	return {
+		paths: [],
+		fallback: true,
+	};
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	return await getStaticsPropsComponent('Text', params?.version || 'v1');
 };
 
 export default React.memo(TextPage);

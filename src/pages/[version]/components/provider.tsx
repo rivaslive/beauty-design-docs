@@ -2,10 +2,10 @@ import React from 'react';
 import marked from 'marked';
 import Head from 'next/head';
 import { Col, Row } from 'antd';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import { getIdComponent } from 'utils/getIdComponent';
-import { getServerSidePropsComponent } from 'utils/getServerSide';
+import { getStaticsPropsComponent } from 'utils/getServerSide';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -78,8 +78,15 @@ const ProviderPage = ({ data }: PageProps) => {
 };
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-	return await getServerSidePropsComponent('Provider', params?.version || 'v1');
+export async function getStaticPaths() {
+	return {
+		paths: [],
+		fallback: true,
+	};
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	return await getStaticsPropsComponent('Provider', params?.version || 'v1');
 };
 
 export default React.memo(ProviderPage);

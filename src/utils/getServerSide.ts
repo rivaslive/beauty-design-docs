@@ -29,7 +29,7 @@ export const getPathsComponent = async () => {
 }
 
 
-export const getServerSidePropsComponent = async (component: string, version: string | string[]) => {
+export const getStaticsPropsComponent = async (component: string, version: string | string[]) => {
 	let res: IComponentes | null = null;
 	const client = initializeApollo();
 	// Call an external API endpoint to get posts
