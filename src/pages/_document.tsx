@@ -99,8 +99,37 @@ class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
 						rel="stylesheet"
 					/>
+
+					{/* Google Tag Manager */}
+					<script
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=GTM-W96QDMD`}
+					/>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GTM-W96QDMD', {
+              page_path: window.location.pathname,
+            });
+          `,
+						}}
+					/>
+					{/* End Google Tag Manager */}
 				</Head>
 				<body>
+					{/* Google Tag Manager (noscript) */}
+					<noscript>
+						<iframe
+							width="0"
+							height="0"
+							style={{ display: 'none', visibility: 'hidden' }}
+							src="https://www.googletagmanager.com/ns.html?id=GTM-W96QDMD"
+						/>
+					</noscript>
+					{/*End Google Tag Manager (noscript)*/}
 					<Main />
 					<NextScript />
 				</body>
