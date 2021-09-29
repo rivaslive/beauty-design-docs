@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import * as ga from 'lib/ga';
 
 // utils
 import { defaultVersion } from 'utils/defaultVersion';
 
 // components
-import  Button from 'components/Atoms/Button/Button';
+import Button from 'components/Atoms/Button/Button';
 import brand from '../../../../public/brand.svg';
 
 // styles
@@ -20,9 +20,12 @@ import {
 	StyleTitle,
 } from './style';
 
-interface IProps {}
-
-const BannerHome = (props: IProps) => {
+const BannerHome = () => {
+	const onClick = () => {
+		ga.push({
+			event: 'btn-get-staring',
+		});
+	};
 	return (
 		<StyleFirstSection>
 			<StyleContentTitle>
@@ -41,7 +44,7 @@ const BannerHome = (props: IProps) => {
 				</StyleText>
 				<StyleCTA className="animate__animated animate__fadeIn animate__delay-2s">
 					<Button className="getting" type="primary">
-						<a href={`/${defaultVersion}/getting-started`}>
+						<a href={`/${defaultVersion}/getting-started`} onClick={onClick}>
 							Getting started
 						</a>
 					</Button>

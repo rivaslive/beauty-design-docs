@@ -4,6 +4,7 @@ import { Col, Row } from 'antd';
 import { GetStaticProps } from 'next';
 
 // utils
+import { defaultName } from 'utils/defaultVersion';
 import { getIdComponent } from 'utils/getIdComponent';
 import { getStaticsPropsComponent } from 'utils/getServerSide';
 
@@ -21,7 +22,7 @@ const TitlePage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Title - Wano UI</title>
+				<title>Title - {defaultName}</title>
 			</Head>
 			<Layout>
 				{/* provider */}

@@ -4,6 +4,7 @@ import { Col, Row } from 'antd';
 import { GetStaticProps } from 'next';
 
 // utils
+import { defaultName } from 'utils/defaultVersion';
 import { getIdComponent } from 'utils/getIdComponent';
 import { getStaticsPropsComponent } from 'utils/getServerSide';
 
@@ -21,7 +22,7 @@ const CardPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Card - Wano UI</title>
+				<title>Card - {defaultName}</title>
 			</Head>
 			<Layout>
 				{/* provider */}

@@ -4,6 +4,7 @@ import { Col, Row } from 'antd';
 import { GetStaticProps } from 'next';
 
 // utils
+import { defaultName } from 'utils/defaultVersion';
 import { getIdComponent } from 'utils/getIdComponent';
 import { getStaticsPropsComponent } from 'utils/getServerSide';
 
@@ -21,7 +22,7 @@ const CarouselPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Carousel - Wano UI</title>
+				<title>Carousel - {defaultName}</title>
 			</Head>
 			<Layout>
 				{/* provider */}

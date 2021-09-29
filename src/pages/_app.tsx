@@ -7,7 +7,9 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { ConfigProvider } from 'antd';
+import { useRouter } from 'next/router';
 import enUS from 'antd/lib/locale/en_US';
+import * as ga from 'lib/ga';
 
 // apollo
 import { useApollo } from 'apollo/config';
@@ -17,6 +19,23 @@ import NProgress from 'components/Atoms/NProgress';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const client = useApollo(pageProps.initialApolloState);
+	const router = useRouter();
+
+	React.useEffect(() => {
+		const handleRouteChange = (url: string) => {
+			ga.pageView(url);
+		};
+		//When the component is mounted, subscribe to router changes
+		//and log those page views
+		router.events.on('routeChangeComplete', handleRouteChange);
+
+		// If the component is unmounted, unsubscribe
+		// from the event with the `off` method
+		return () => {
+			router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, [router.events]);
+
 	return (
 		<>
 			<Head>

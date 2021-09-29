@@ -4,6 +4,7 @@ import { Col, Row } from 'antd';
 import { GetStaticProps } from 'next';
 
 // utils
+import { defaultName } from 'utils/defaultVersion';
 import { getIdComponent } from 'utils/getIdComponent';
 import { getStaticsPropsComponent } from 'utils/getServerSide';
 
@@ -16,13 +17,12 @@ import Example from 'components/Molecules/Example/Example';
 import Table from 'components/Molecules/Table/Table';
 import BuildingPage from 'components/Organisms/BuildingPage';
 
-
 const TextPage = ({ data }: PageProps) => {
 	if (!data) return <BuildingPage />;
 	return (
 		<>
 			<Head>
-				<title>Text - Wano UI</title>
+				<title>Text - {defaultName}</title>
 			</Head>
 			<Layout>
 				{/* provider */}

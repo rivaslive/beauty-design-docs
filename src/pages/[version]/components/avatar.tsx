@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
+import { defaultName } from 'utils/defaultVersion';
 import { getStaticsPropsComponent } from 'utils/getServerSide';
 
 // components
@@ -21,7 +22,7 @@ const AvatarPage = ({ data }: PageProps) => {
 	return (
 		<>
 			<Head>
-				<title>Avatar - Wano UI</title>
+				<title>Avatar - {defaultName}</title>
 			</Head>
 			<Layout>
 				{/* provider */}

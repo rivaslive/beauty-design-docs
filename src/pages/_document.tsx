@@ -37,6 +37,7 @@ class MyDocument extends Document {
 	}
 
 	render() {
+		const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 		return (
 			<Html lang="en">
 				<Head>
@@ -100,6 +101,23 @@ class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 
+					{/* Global site tag (gtag.js) - Google Analytics */}
+					<script
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=G-904NQF9ECE`}
+					/>
+
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+								window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-904NQF9ECE');
+							`,
+						}}
+					/>
 					{/* Google Tag Manager */}
 					<script
 						dangerouslySetInnerHTML={{
@@ -115,7 +133,7 @@ class MyDocument extends Document {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-W96QDMD');
+})(window,document,'script','dataLayer','${GTAG_ID}');
           `,
 						}}
 					/>
@@ -128,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							width="0"
 							height="0"
 							style={{ display: 'none', visibility: 'hidden' }}
-							src="https://www.googletagmanager.com/ns.html?id=GTM-W96QDMD"
+							src={`https://www.googletagmanager.com/ns.html?id=${GTAG_ID}`}
 						/>
 					</noscript>
 					{/*End Google Tag Manager (noscript)*/}

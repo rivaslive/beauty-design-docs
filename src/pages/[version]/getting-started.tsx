@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Lottie from 'react-lottie';
 
 import GetStart from 'assets/v1/lotties/get-started.json';
+import { defaultName } from 'utils/defaultVersion';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -25,7 +26,7 @@ const GettingStartedPage = () => {
 	return (
 		<>
 			<Head>
-				<title>Getting started - React Native Beauty UI</title>
+				<title>Getting started - {defaultName}</title>
 			</Head>
 			<Layout>
 				<Title variant="ROBOT_36_50_500">Getting Started</Title>
