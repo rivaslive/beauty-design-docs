@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import * as ga from 'lib/ga';
 
 // utils
@@ -23,7 +24,7 @@ import {
 const BannerHome = () => {
 	const onClick = () => {
 		ga.push({
-			event: 'btn-get-staring',
+			event: 'get-staring',
 		});
 	};
 	return (
@@ -44,9 +45,11 @@ const BannerHome = () => {
 				</StyleText>
 				<StyleCTA className="animate__animated animate__fadeIn animate__delay-2s">
 					<Button className="getting" type="primary">
-						<a href={`/${defaultVersion}/getting-started`} onClick={onClick}>
-							Getting started
-						</a>
+						<Link href={`/${defaultVersion}/getting-started`} passHref>
+							<a onClick={onClick}>
+								Getting started
+							</a>
+						</Link>
 					</Button>
 				</StyleCTA>
 			</StyleContentTitle>

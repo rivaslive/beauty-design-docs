@@ -18,7 +18,7 @@ export const event = ({ action, params }: EventProps) => {
 };
 
 interface EventPushProps {
-	event: 'btn-get-staring' | 'click' | 'recordSubmitted' | 'formSubmitted';
+	event: 'get-staring' | 'click' | 'recordSubmitted' | 'formSubmitted';
 }
 
 export const push = ({ event }: EventPushProps) => {

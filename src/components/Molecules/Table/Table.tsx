@@ -8,6 +8,9 @@ import { getIdComponent } from 'utils/getIdComponent';
 import Text from 'components/Atoms/Text';
 import Title from 'components/Atoms/Title';
 
+// styles
+import { StyleContent } from './style';
+
 interface IProps {
 	title: string;
 	description: string;
@@ -47,7 +50,7 @@ const Table = ({ items, description, title }: IProps) => {
 	];
 
 	return (
-		<>
+		<StyleContent>
 			{/* title */}
 			{title && (
 				<>
@@ -70,7 +73,7 @@ const Table = ({ items, description, title }: IProps) => {
 				</>
 			)}
 			<TableAnt pagination={false} columns={columns} dataSource={items} />
-		</>
+		</StyleContent>
 	);
 };
 

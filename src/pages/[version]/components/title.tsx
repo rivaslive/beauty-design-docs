@@ -14,7 +14,7 @@ import Title from 'components/Atoms/Title';
 import Layout from 'components/Molecules/Layout';
 import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table/Table';
-import Example from 'components/Molecules/Example/Example';
+import Example, { ImageFrame } from 'components/Molecules/Example/Example';
 import BuildingPage from 'components/Organisms/BuildingPage';
 
 const TitlePage = ({ data }: PageProps) => {
@@ -39,7 +39,18 @@ const TitlePage = ({ data }: PageProps) => {
 					</>
 				)}
 				<br />
+				{/* Default code */}
 				{data?.defaultCode && <BlockCode>{data?.defaultCode}</BlockCode>} <br />
+				{/* default content */}
+				{data?.image?.url && (
+					<>
+						<Title id="what-i-can-do" variant="ROBOT_24_28_500" isLink>
+							What I can do
+						</Title>
+						<Text variant="ROBOT_14_28_400">basic tour of properties</Text>
+						<ImageFrame image={data?.image?.url} style={{ margin: 0, marginBottom: 30 }} />
+					</>
+				)}
 				{/* WhyBeautyUI */}
 				<Title id="Examples" variant="ROBOT_24_28_500" isLink>
 					Examples
@@ -50,11 +61,12 @@ const TitlePage = ({ data }: PageProps) => {
 							<Col xs={24} md={12}>
 								<Example
 									key={example.id}
-									id={getIdComponent(example.title)}
-									image={example?.imagen?.url}
-									title={example.title}
-									summary={example.description}
 									code={example.code}
+									title={example.title}
+									snack={example.snack}
+									image={example?.imagen?.url}
+									summary={example.description}
+									id={getIdComponent(example.title)}
 								/>
 							</Col>
 						))}

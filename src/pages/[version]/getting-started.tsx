@@ -12,13 +12,13 @@ import Text from 'components/Atoms/Text';
 import Code, { BlockCode } from 'components/Atoms/Code';
 import NextStep from 'components/Molecules/NextStep';
 
-const code = `import { UINativeProvider } from 'react-native-beauty-ui';
+const code = `import { DesignProvider } from 'react-native-beauty-design';
 
 export default function App() {
   return (
-    <UINativeProvider>
+    <DesignProvider>
       ...
-    </UINativeProvider>
+    </DesignProvider>
   );
 }`;
 
@@ -58,17 +58,21 @@ const GettingStartedPage = () => {
 					html={`For installation only run the next command in console:`}
 				/>
 				<br />
-				<Code>yarn add react-native-beauty-ui</Code>
+				<Code>expo install react-native-beauty-design</Code>
 				<br />
 				<Text variant="ROBOT_14_28_400" html={`Or`} />
 				<br />
-				<Code>npm i react-native-beauty-ui</Code>
+				<Code>yarn add react-native-beauty-design</Code>
+				<br />
+				<Text variant="ROBOT_14_28_400" html={`Or`} />
+				<br />
+				<Code>npm i react-native-beauty-design</Code>
 				<br />
 				<br />
 				<Title variant="ROBOT_24_28_500">Provider(Required):</Title>
 				<Text
 					variant="ROBOT_14_28_400"
-					html={`The provider is a mandatory component that must be at the highest possible level of your application, before using any other component of <b>beauty-ui</b>.`}
+					html={`The provider is a mandatory component that must be at the highest possible level of your application, before using any other component of <b>beauty-design</b>.`}
 				/>
 				<br />
 				<Code code={false} copiable={false}>

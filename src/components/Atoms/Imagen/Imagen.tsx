@@ -4,7 +4,12 @@ import { StyleImage } from './style';
 
 type ImagenProps = {
 	className?: string;
-} & ImageProps;
+	src?: string;
+	width?: string | number;
+	height?: string | number;
+	objectFit?: string;
+	[key: string]: unknown;
+};
 
 const Imagen = ({
 	className,
@@ -22,6 +27,7 @@ const Imagen = ({
 				alt=""
 				width={width}
 				height={height}
+				// @ts-ignore
 				style={{ objectFit }}
 				{...rest}
 			/>

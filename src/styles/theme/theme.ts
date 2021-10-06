@@ -17,7 +17,9 @@ export type ColorVariant =
 
 export const colors = {
 	primary: '#02a79e',
+	primaryDark: '#005b54',
 	secondary: '#ff006e',
+	purple: '#B468F4',
 	black: '#000000',
 	white: '#FFFFFF',
 	transparent: 'transparent',

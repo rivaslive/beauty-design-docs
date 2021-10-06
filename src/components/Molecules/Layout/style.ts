@@ -161,11 +161,18 @@ export const StyleContent = styled(Content)`
 	padding: 10px 10px 100px;
 	background: white;
 	overflow-y: auto;
+	overflow-x: hidden;
 	scroll-behavior: smooth;
 
 	${mediaQueries.minTablet} {
 		padding: 10px 20px 100px;
 		flex: 0 0 calc(100% - 250px);
+		transition: all 500ms;
+
+		&.collapsed {
+			transition: all 500ms;
+			flex: 0 0 100%;
+		}
 	}
 `;
 
@@ -198,18 +205,18 @@ export const StyleMenuHome = styled(Menu)`
 			background: transparent;
 
 			.ant-menu-item {
-				color: rgba(100, 100, 100, 1);
+				color: rgb(100, 100, 100);
 				font-weight: 600;
 			}
 
 			.ant-menu-item.ant-menu-item-selected {
 				&:after {
-					border-bottom: 2px solid ${colors.secondary};
+					border-color: ${colors.primaryDark};
 				}
 
 				.ant-menu-title-content {
 					* {
-						color: ${colors.secondary};
+						color: rgb(0, 0, 0);
 					}
 				}
 			}
@@ -218,12 +225,12 @@ export const StyleMenuHome = styled(Menu)`
 			//Hover
 			.ant-menu-item.ant-menu-item-active {
 				&:after {
-					border-bottom: 2px solid ${colors.secondary};
+					border-color: ${colors.primaryDark};
 				}
 				.ant-menu-title-content {
 					&:hover {
 						* {
-							color: ${colors.secondary};
+							color: rgb(0, 0, 0);
 						}
 					}
 				}

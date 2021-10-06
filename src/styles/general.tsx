@@ -3,11 +3,11 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { fontNames } from './theme/theme';
 
-const GlobalStyle = createGlobalStyle<{ $isHome: boolean }>`
+const GlobalStyle = createGlobalStyle`
 	${normalize}
 	body {
 		overflow-x: hidden;
-		overflow-y: ${({ $isHome }) => ($isHome ? 'scroll' : 'hidden')};
+		overflow-y: ${({ theme }: any) => (theme?.isHome ? 'scroll' : 'hidden')};
 		font-family: ${fontNames.roboto} !important;
 		scroll-behavior: smooth;
 		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle<{ $isHome: boolean }>`
 
 	.max-width {
 		max-width: 100%;
+	}
+
+	.ant-message {
+		margin-top: 100px;
 	}
 `;
 

@@ -16,6 +16,7 @@ import {
 	StyleTitle,
 } from './style';
 import { MenuHome } from './Menu';
+import Link from 'next/link';
 
 interface IProps {
 	isHome?: boolean;
@@ -30,12 +31,14 @@ const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 	return (
 		<StyleHead $isHome={isSolid} $isHome2={isHome} theme="light">
 			<StyleHeadContent $isHome={isSolid}>
-				<a href="/">
-					<StyleBrand>
-						<Image src={Brand} height={30} width={40} objectFit="contain" />
-						<StyleTitle variant="ROBOT_24_28_500">Beauty Design</StyleTitle>
-					</StyleBrand>
-				</a>
+				<Link href="/" passHref>
+					<a>
+						<StyleBrand>
+							<Image src={Brand} height={30} width={40} objectFit="contain" />
+							<StyleTitle variant="ROBOT_24_28_500">Beauty Design</StyleTitle>
+						</StyleBrand>
+					</a>
+				</Link>
 				{!isHome ? (
 					<>
 						<StyleInputSearch placeholder="Search..." bordered={false} />

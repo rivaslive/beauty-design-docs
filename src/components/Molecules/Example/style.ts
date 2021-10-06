@@ -14,9 +14,32 @@ export const StyleFirstSection = styled.div`
 	padding: 42px 24px 50px;
 	border-bottom: 1px solid #f0f0f0;
 	text-align: center;
+`;
 
-	img {
-		margin: auto;
+export const StyleFrameImage = styled.div`
+	position: relative;
+	width: 219px;
+	height: 450px;
+	padding: 12px;
+	margin: auto;
+
+	.img, img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 30px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url("/frame.png");
+		background-size: contain;
+		background-repeat: no-repeat no-repeat;
 	}
 `;
 

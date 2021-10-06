@@ -3,10 +3,10 @@ import Title from 'components/Atoms/Title';
 
 export const StyleNext = styled.div`
 	display: inline-block;
-	box-shadow: 0 2px 9px 2px #c1c1c1;
 	padding: 10px 30px;
 	min-width: 400px;
 	max-width: 100%;
+	border: 1px solid rgba(100, 100, 100, .2);
 	border-radius: 8px;
 	cursor: pointer;
 	transition: all 200ms;
@@ -14,6 +14,7 @@ export const StyleNext = styled.div`
 	&:hover {
 		transform: scale(1.05);
 		transition: all 200ms;
+		box-shadow: 0 2px 9px 2px #c1c1c1;
 	}
 `;
 

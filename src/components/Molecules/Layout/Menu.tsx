@@ -79,7 +79,9 @@ export const MenuHome = ({ items }: any) => {
 					if (i.key === 'documentation') {
 						return (
 							<StyleMenuHomeItem key={i.key}>
-								<a href={i?.href}>{i.name}</a>
+								<Link href={i?.href} passHref>
+									<a>{i.name}</a>
+								</Link>
 							</StyleMenuHomeItem>
 						);
 					}

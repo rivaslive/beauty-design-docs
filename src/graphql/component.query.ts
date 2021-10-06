@@ -29,7 +29,7 @@ query getProvider($title: String, $version: String) {
       	id
         title
         description
-        items {
+        items(sort: "property:asc") {
           id
           property
           description

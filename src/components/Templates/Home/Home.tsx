@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
 import useScrollDirection from 'hooks/useScrollDirection';
 
@@ -22,25 +23,27 @@ const HomeTemplate = () => {
 	const { scrollPositionAtTop } = useScrollDirection(true, 0, 200);
 
 	return (
-		<StyleHome id="home">
-			<GlobalStyle $isHome={true} />
-			<AlertBanner
-				message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
-				banner
-			/>
-			<Navbar isHome isSolid={scrollPositionAtTop} menu={menuHome} />
-			<StyleHome>
-				<StyleContent>
-					<BannerHome />
-					<WhyBeautyUI id="why-beauty-ui" />
-					<NightMode />
-					<Examples id="examples" />
-					<Me />
-					<Donations id="donations" />
-					<Footer />
-				</StyleContent>
+		<ThemeProvider theme={{ isHome: true }}>
+			<GlobalStyle />
+			<StyleHome id="home">
+				<AlertBanner
+					message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
+					banner
+				/>
+				<Navbar isHome isSolid={scrollPositionAtTop} menu={menuHome} />
+				<StyleHome>
+					<StyleContent>
+						<BannerHome />
+						<WhyBeautyUI id="why-beauty-ui" />
+						<NightMode />
+						<Examples id="examples" />
+						<Me />
+						<Donations id="donations" />
+						<Footer />
+					</StyleContent>
+				</StyleHome>
 			</StyleHome>
-		</StyleHome>
+		</ThemeProvider>
 	);
 };
 
