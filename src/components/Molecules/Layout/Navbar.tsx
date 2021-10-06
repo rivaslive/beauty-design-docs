@@ -4,6 +4,7 @@ import { GithubOutlined } from '@ant-design/icons';
 
 // brand
 import { repoUrl } from 'utils/getGithub';
+import Link from 'next/link';
 import Brand from '../../../../public/favicon.png';
 
 // components
@@ -16,7 +17,6 @@ import {
 	StyleTitle,
 } from './style';
 import { MenuHome } from './Menu';
-import Link from 'next/link';
 
 interface IProps {
 	isHome?: boolean;
