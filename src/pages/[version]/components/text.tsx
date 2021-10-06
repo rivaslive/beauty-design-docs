@@ -55,6 +55,7 @@ const TextPage = ({ data }: PageProps) => {
 								title={example.title}
 								summary={example.description}
 								code={example.code}
+								snack={example.snack}
 							/>
 						</Col>
 					))}

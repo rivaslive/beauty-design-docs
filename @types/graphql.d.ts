@@ -20,7 +20,7 @@ declare interface IComponentes {
 		title: string;
 		description: string;
 		code: string;
-		snack: string;
+		snack?: string;
 		imagen: {
 			name?: string;
 			url: string;

@@ -29,7 +29,7 @@ interface IProps {
 	title: string;
 	summary: string;
 	code: string;
-	snack: string;
+	snack?: string;
 
 	[key: string]: unknown;
 }
