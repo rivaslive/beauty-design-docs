@@ -87,7 +87,8 @@ export const StyleSider = styled(Sider)`
 
 			&::-webkit-scrollbar {
 				background-color: transparent;
-				width: 8px;
+				border-radius: 4px;
+				width: 5px;
 			}
 
 			&::-webkit-scrollbar-thumb {
@@ -98,6 +99,14 @@ export const StyleSider = styled(Sider)`
 				&::-webkit-scrollbar-thumb {
 					background-color: #d9d9d9;
 				}
+			}
+
+			.ant-menu.ant-menu-root {
+				padding: 0 5px 0 10px;
+			}
+
+			.ant-menu-item {
+				border-radius: 12px;
 			}
 		}
 	}

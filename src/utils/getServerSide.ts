@@ -26,10 +26,12 @@ export const getPathsComponent = async () => {
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
 	return { paths, fallback: true };
-}
+};
 
-
-export const getStaticsPropsComponent = async (component: string, version: string | string[]) => {
+export const getStaticsPropsComponent = async (
+	component: string,
+	version: string | string[],
+) => {
 	let res: IComponentes | null = null;
 	const client = initializeApollo();
 	// Call an external API endpoint to get posts
@@ -52,7 +54,7 @@ export const getStaticsPropsComponent = async (component: string, version: strin
 		// will receive `data` as a prop at build time
 		return {
 			props: {
-				data: res,
+				data: { ...res, component },
 			},
 		};
 	} catch (e) {
@@ -63,4 +65,4 @@ export const getStaticsPropsComponent = async (component: string, version: strin
 			},
 		};
 	}
-}
+};

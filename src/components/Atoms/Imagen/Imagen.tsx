@@ -25,6 +25,7 @@ const Imagen = ({
 				// @ts-ignore
 				src={src}
 				alt=""
+				loading="lazy"
 				width={width}
 				height={height}
 				// @ts-ignore

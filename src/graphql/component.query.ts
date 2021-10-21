@@ -25,7 +25,7 @@ query getProvider($title: String, $version: String) {
 					url
 				}
       }
-      apis {
+      apis(sort: "title:asc") {
       	id
         title
         description

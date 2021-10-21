@@ -92,7 +92,7 @@ const Example = ({ title, summary, code, image, snack, ...rest }: IProps) => {
 			</StyleFooter>
 			{showCode && (
 				<StyleShowCode>
-					<BlockCode showLineNumbers={false} background="white">
+					<BlockCode showLineNumbers={false}>
 						{code}
 					</BlockCode>
 				</StyleShowCode>

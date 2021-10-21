@@ -5,6 +5,7 @@ declare interface IGraphComponentReq {
 
 declare interface IComponentes {
 	id: string;
+	component: string;
 	title: string;
 	description: string;
 	howToUse: string;
