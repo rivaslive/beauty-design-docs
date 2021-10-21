@@ -64,28 +64,28 @@ class MyDocument extends Document {
 					<link rel="manifest" href="/site.webmanifest" />
 					<meta
 						name="keywords"
-						content="react-native, React Native, npm, docs, beauty-ui, beauty ui, provider, title, button, tabs, cards, api"
+						content="react-native, React Native, npm, docs, beauty-design, react native beauty-design, beauty design, provider, title, button, tabs, cards, api"
 					/>
 					<meta name="author" content="rivaslive" />
-					<meta property="title" content="React Native Beauty UI" />
-					<meta property="og:title" content="React Native Beauty UI" />
+					<meta property="title" content="React Native Beauty Design" />
+					<meta property="og:title" content="React Native Beauty Design" />
 					<meta
 						property="og:url"
-						content="https://https://beaury-ui-docs.vercel.app"
+						content="https://beauty-design.app"
 					/>
 					<meta property="og:type" content="website" />
 					<meta
 						property="og:image"
-						content="https://https://beaury-ui-docs.vercel.app/android-chrome-192x192.png"
+						content="https://beauty-design.app/share.png"
 					/>
 					<meta
 						property="og:image:secure_url"
-						content="https://https://beaury-ui-docs.vercel.app/android-chrome-192x192.png"
+						content="https://beauty-design.app/share.png"
 					/>
 					<meta property="og:image:type" content="image/png" />
-					<meta property="og:image:width" content="450" />
-					<meta property="og:image:height" content="253" />
-					<meta property="og:image:alt" content="React Native Beauty UI" />
+					<meta property="og:image:width" content="1366" />
+					<meta property="og:image:height" content="768" />
+					<meta property="og:image:alt" content="React Native Beauty Design" />
 					<meta
 						name="og:description"
 						content="The best UI components library for React Native"
