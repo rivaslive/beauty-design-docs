@@ -34,6 +34,39 @@ const GlobalStyle = createGlobalStyle`
 	.ant-message {
 		margin-top: 100px;
 	}
+
+	.block-code {
+		position: relative;
+
+		.hljs {
+			border-radius: 12px;
+		}
+	}
+
+	button.block-code__copy {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background-color: rgba(255, 255, 255, 0.1);
+		border: none;
+
+		.anticon {
+			color: #eaeaea;
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+			border: none;
+			opacity: 0.7;
+		}
+
+		&:focus,
+		&:active {
+			background-color: rgba(255, 255, 255, 0.1);
+			border: none;
+			opacity: 1;
+		}
+	}
 `;
 
 export default GlobalStyle;
