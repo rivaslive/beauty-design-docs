@@ -25,15 +25,16 @@ const Seo = ({
 	image = 'https://www.beauty-design.app/share.png',
 }: SeoProps) => {
 	const newTitle = `${title}${!notDash && ` -`} ${defaultName}`;
+	const newDescription = decodeUTF8Text(htmlToFormattedText(description));
 	return (
 		<NextSeo
 			title={newTitle}
-			description={decodeUTF8Text(htmlToFormattedText(description))}
+			description={newDescription}
 			canonical={canonical}
 			openGraph={{
 				url: canonical,
 				title: newTitle,
-				description: description,
+				description: newDescription,
 				images: [
 					{
 						url: image,
