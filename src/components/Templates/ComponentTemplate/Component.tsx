@@ -8,6 +8,7 @@ import { getIdComponent } from 'utils/getIdComponent';
 
 // components
 import Text from 'components/Atoms/Text';
+import Seo from 'components/Atoms/Seo/Seo';
 import Title from 'components/Atoms/Title';
 import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table/Table';
@@ -17,11 +18,7 @@ import Example, { ImageFrame } from 'components/Molecules/Example/Example';
 const ComponentTemplate = ({ data }: PageProps) => {
 	return (
 		<>
-			<Head>
-				<title>
-					{data.component} - {defaultName}
-				</title>
-			</Head>
+			<Seo title="Title"/>
 			<Layout data={data}>
 				{/* provider */}
 				<Title level={1} variant="ROBOT_36_50_500">

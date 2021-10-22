@@ -17,6 +17,7 @@ import { useApollo } from 'apollo/config';
 
 // components
 import NProgress from 'components/Atoms/NProgress';
+import Seo from 'components/Atoms/Seo/Seo';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const client = useApollo(pageProps.initialApolloState);
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<title>Beauty Design</title>
 			</Head>
+			<Seo />
 			<ApolloProvider client={client}>
 				<ConfigProvider locale={enUS}>
 					<NProgress />

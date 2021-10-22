@@ -1,9 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
 import Lottie from 'react-lottie';
 
 import GetStart from 'assets/v1/lotties/get-started.json';
-import { defaultName } from 'utils/defaultVersion';
 
 // components
 import Layout from 'components/Molecules/Layout';
@@ -11,6 +9,7 @@ import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
 import { Code, BlockCode } from 'components/Atoms/Code';
 import NextStep from 'components/Molecules/NextStep';
+import Seo from '../../components/Atoms/Seo/Seo';
 
 const code = `
 import { DesignProvider } from 'react-native-beauty-design';
@@ -26,9 +25,7 @@ export default function App() {
 const GettingStartedPage = () => {
 	return (
 		<>
-			<Head>
-				<title>Getting started - {defaultName}</title>
-			</Head>
+			<Seo title="Getting started"/>
 			<Layout noIndice>
 				<Title variant="ROBOT_36_50_500">Getting Started</Title>
 				<Text
