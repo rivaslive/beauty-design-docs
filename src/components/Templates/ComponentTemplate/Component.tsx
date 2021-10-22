@@ -1,9 +1,8 @@
 import React from 'react';
-import Head from 'next/head';
 import { Col, Row } from 'antd';
 
 // utils
-import { defaultName } from 'utils/defaultVersion';
+import { capitalize } from 'utils/utils';
 import { getIdComponent } from 'utils/getIdComponent';
 
 // components
@@ -18,7 +17,7 @@ import Example, { ImageFrame } from 'components/Molecules/Example/Example';
 const ComponentTemplate = ({ data }: PageProps) => {
 	return (
 		<>
-			<Seo title="Title"/>
+			<Seo title={capitalize(data.component)} description={data.description}/>
 			<Layout data={data}>
 				{/* provider */}
 				<Title level={1} variant="ROBOT_36_50_500">
