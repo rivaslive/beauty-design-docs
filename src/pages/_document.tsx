@@ -43,55 +43,6 @@ class MyDocument extends Document {
 				<Head>
 					<meta charSet="utf-8" />
 					<meta httpEquiv="x-ua-compatible" content="ie=edge" />
-					<meta name="msapplication-TileImage" content="/favicon.png" />
-					<link
-						rel="apple-touch-icon"
-						sizes="180x180"
-						href="/apple-touch-icon.png"
-					/>
-					<link
-						rel="icon"
-						type="image/png"
-						sizes="32x32"
-						href="/favicon-32x32.png"
-					/>
-					<link
-						rel="icon"
-						type="image/png"
-						sizes="16x16"
-						href="/favicon-16x16.png"
-					/>
-					<link rel="manifest" href="/site.webmanifest" />
-					<meta
-						name="keywords"
-						content="react-native, React Native, npm, docs, beauty-design, react native beauty-design, beauty design, provider, title, button, tabs, cards, api"
-					/>
-					<meta name="author" content="rivaslive" />
-					<meta property="title" content="React Native Beauty Design" />
-					<meta property="og:title" content="React Native Beauty Design" />
-					<meta property="og:url" content="https://beauty-design.app" />
-					<meta property="og:type" content="website" />
-					<meta
-						property="og:image"
-						content="https://beauty-design.app/share.png"
-					/>
-					<meta
-						property="og:image:secure_url"
-						content="https://beauty-design.app/share.png"
-					/>
-					<meta property="og:image:type" content="image/png" />
-					<meta property="og:image:width" content="1366" />
-					<meta property="og:image:height" content="768" />
-					<meta property="og:image:alt" content="React Native Beauty Design" />
-					<meta
-						name="og:description"
-						content="The best UI components library for React Native"
-					/>
-					<meta
-						name="description"
-						content="The best UI components library for React Native"
-					/>
-
 					{/* GOOGLE FONTS */}
 					<link
 						href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -135,6 +86,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 						}}
 					/>
 					{/* End Google Tag Manager */}
+
+					<meta name="msapplication-TileImage" content="/favicon.png" />
+					<link
+						rel="apple-touch-icon"
+						sizes="180x180"
+						href="/apple-touch-icon.png"
+					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="32x32"
+						href="/favicon-32x32.png"
+					/>
+					<link
+						rel="icon"
+						type="image/png"
+						sizes="16x16"
+						href="/favicon-16x16.png"
+					/>
+					<link rel="manifest" href="/site.webmanifest" />
+					<meta
+						name="keywords"
+						content="react-native, React Native, npm, docs, beauty-design, react native beauty-design, beauty design, provider, title, button, tabs, cards, api"
+					/>
+					<meta name="author" content="rivaslive" />
+					<meta property="og:type" content="website" />
 				</Head>
 				<body>
 					{/* Google Tag Manager (noscript) */}
