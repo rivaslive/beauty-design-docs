@@ -46,6 +46,36 @@ const Seo = ({
 				],
 				site_name: altImage,
 			}}
+			additionalMetaTags={[
+				{
+					property: 'url',
+					content: canonical,
+				},
+				{
+					property: 'image',
+					content: image,
+				},
+				{
+					property: 'image:alt',
+					content: altImage,
+				},
+				{
+					property: 'image:type',
+					content: 'image/png',
+				},
+				{
+					property: 'site_name',
+					content: altImage,
+				},
+				{
+					property: 'title',
+					content: title,
+				},
+				{
+					property: 'og:title',
+					content: title,
+				},
+			]}
 		/>
 	);
 };
