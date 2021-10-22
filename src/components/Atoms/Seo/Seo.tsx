@@ -1,7 +1,10 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+// @ts-ignore
+import htmlToFormattedText from 'html-to-formatted-text';
 
 // utils
+import { decodeUTF8Text } from 'utils/utils';
 import { defaultName } from 'utils/defaultVersion';
 
 interface SeoProps {
@@ -10,7 +13,7 @@ interface SeoProps {
 	canonical?: string;
 	image?: string;
 	altImage?: string;
-	notDash?: boolean
+	notDash?: boolean;
 }
 
 const Seo = ({
@@ -25,7 +28,7 @@ const Seo = ({
 	return (
 		<NextSeo
 			title={newTitle}
-			description={description}
+			description={decodeUTF8Text(htmlToFormattedText(description))}
 			canonical={canonical}
 			openGraph={{
 				url: canonical,
