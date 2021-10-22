@@ -1,5 +1,4 @@
 import React from 'react';
-import marked from 'marked';
 import { Table as TableAnt } from 'antd';
 
 import { getIdComponent } from 'utils/getIdComponent';
@@ -32,7 +31,9 @@ const Table = ({ items, description, title }: IProps) => {
 		{
 			title: 'Description',
 			dataIndex: 'description',
-			render: (text: any) => <Text variant="ROBOT_14_28_400" html={marked(text)} />,
+			render: (text: any) => (
+				<Text variant="ROBOT_14_28_400" html={text} />
+			),
 		},
 		{
 			title: 'Type',
@@ -56,11 +57,7 @@ const Table = ({ items, description, title }: IProps) => {
 				<>
 					<br />
 					<br />
-					<Title
-						id={getIdComponent(title)}
-						variant="ROBOT_24_28_500"
-						isLink
-					>
+					<Title id={getIdComponent(title)} variant="ROBOT_24_28_500" isLink>
 						{title}
 					</Title>
 				</>
@@ -68,13 +65,18 @@ const Table = ({ items, description, title }: IProps) => {
 			{/*description*/}
 			{description && (
 				<>
-					<Text variant="ROBOT_14_28_400" html={marked(description)} />
+					<Text variant="ROBOT_14_28_400" html={description} />
 					<br />
 				</>
 			)}
-			<TableAnt pagination={false} columns={columns} dataSource={items} />
+			<TableAnt
+				rowKey="id"
+				pagination={false}
+				columns={columns}
+				dataSource={items}
+			/>
 		</StyleContent>
 	);
 };
 
-export default React.memo(Table);
+export default Table;

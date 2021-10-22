@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Copy from 'copy-to-clipboard';
 import { Button } from 'antd';
 import { CheckCircleTwoTone, CopyOutlined } from '@ant-design/icons';
-import Highlight from 'react-highlight'
-/*import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';*/
+import hljs from 'highlight.js';
 
 interface IProps {
-	children?: React.ReactNode;
-	copiable?: boolean;
-	code?: boolean;
+	children?: string;
 	copy?: boolean;
-	background?: string;
-	wrapLines?: boolean;
-	showLineNumbers?: boolean;
+	language?: string
 }
 
-const BlockCode = ({
-	children,
-	copy = false,
-	background = 'rgb(54,54,75)',
-	showLineNumbers = true,
-	wrapLines = true,
-}: IProps) => {
+const BlockCode = ({ children, copy = true, language = 'typescript' }: IProps) => {
+	const ref = useRef<HTMLPreElement>(null);
+	const [textCopy, setTextCopy] = useState('');
 	const [clicB, setClicB] = useState(false);
+
+	const timeFunc = () => {
+		return setTimeout(() => {
+			setTextCopy('');
+			setClicB(false);
+		}, 5000);
+	};
 
 	const onCopy = () => {
 		if (clicB) {
+			clearTimeout(timeFunc());
+			setTextCopy('');
 			return setClicB((prev) => !prev);
 		}
 		const c = Copy(
@@ -34,26 +33,44 @@ const BlockCode = ({
 				? children
 				: 'Error the copy text in Beauty Design',
 		);
-		c && setClicB((prev) => !prev);
+		if (c) {
+			setClicB(true);
+			setTextCopy('Copied!');
+			timeFunc();
+		}
 	};
+
+	// const html = React.useMemo(() => {
+	// 	if (children) {
+	// 		return hljs.highlight(children, {
+	// 			language: 'typescript',
+	// 		}).value;
+	// 	}
+	// 	return '';
+	// }, [children]);
+
+	React.useEffect(() => {
+		const nodes = ref?.current?.querySelectorAll('pre code');
+		if (nodes) {
+			for (let i = 0; i < nodes?.length; i++) {
+				hljs.highlightElement(nodes[i] as HTMLElement);
+			}
+		}
+	}, []);
 
 	return (
 		<div className="block-code">
-			<Highlight
-				// wrapLines={wrapLines}
-				// customStyle={{ background }}
-				// showLineNumbers={showLineNumbers}
-				className="language-typescript"
-				// style={vscDarkPlus}
-			>
-				{children}
-			</Highlight>
+			<pre ref={ref}>
+				<code
+					className="language-typescript"
+				>{children}</code>
+			</pre>
 			{copy && (
 				<Button
-					className="block-code__copy"
-					onClick={onCopy}
 					title="Copy"
-					shape="circle"
+					onClick={onCopy}
+					className="block-code__copy"
+					shape="round"
 					icon={
 						clicB ? (
 							<CheckCircleTwoTone twoToneColor="#52c41a" />
@@ -61,10 +78,12 @@ const BlockCode = ({
 							<CopyOutlined />
 						)
 					}
-				/>
+				>
+					{textCopy}
+				</Button>
 			)}
 		</div>
 	);
 };
 
-export default React.memo(BlockCode);
+export default BlockCode;

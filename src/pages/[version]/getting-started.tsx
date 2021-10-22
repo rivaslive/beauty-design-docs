@@ -12,14 +12,15 @@ import Text from 'components/Atoms/Text';
 import { Code, BlockCode } from 'components/Atoms/Code';
 import NextStep from 'components/Molecules/NextStep';
 
-const code = `import { DesignProvider } from 'react-native-beauty-design';
+const code = `
+import { DesignProvider } from 'react-native-beauty-design';
 
 export default function App() {
   return (
     <DesignProvider>
-      ...
-    </DesignProvider>
-  );
+				...
+		</DesignProvider>
+	);
 }`;
 
 const GettingStartedPage = () => {
@@ -28,7 +29,7 @@ const GettingStartedPage = () => {
 			<Head>
 				<title>Getting started - {defaultName}</title>
 			</Head>
-			<Layout>
+			<Layout noIndice>
 				<Title variant="ROBOT_36_50_500">Getting Started</Title>
 				<Text
 					variant="ROBOT_14_28_400"

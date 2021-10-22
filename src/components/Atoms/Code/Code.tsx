@@ -25,4 +25,4 @@ const Code = ({
 	);
 };
 
-export default React.memo(Code);
+export default Code;

@@ -1,6 +1,7 @@
 import 'antd/dist/antd.css';
 import 'animate.css/animate.css';
 import 'slick-carousel/slick/slick.css';
+import 'highlight.js/styles/atom-one-dark.css';
 
 import React from 'react';
 import Head from 'next/head';

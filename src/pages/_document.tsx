@@ -43,10 +43,6 @@ class MyDocument extends Document {
 				<Head>
 					<meta charSet="utf-8" />
 					<meta httpEquiv="x-ua-compatible" content="ie=edge" />
-					<link
-						rel="stylesheet"
-						href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/atom-one-dark.min.css"
-					/>
 					<meta name="msapplication-TileImage" content="/favicon.png" />
 					<link
 						rel="apple-touch-icon"

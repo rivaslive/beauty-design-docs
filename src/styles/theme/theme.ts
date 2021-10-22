@@ -13,6 +13,7 @@ export type ColorVariant =
 	| 'black'
 	| 'white'
 	| 'transparent'
+	| 'yellow'
 	| 'secondary';
 
 export const colors = {
@@ -21,6 +22,7 @@ export const colors = {
 	secondary: '#ff006e',
 	purple: '#B468F4',
 	black: '#000000',
+	yellow: '#FAAD14',
 	white: '#FFFFFF',
 	transparent: 'transparent',
 };

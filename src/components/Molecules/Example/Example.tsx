@@ -1,17 +1,13 @@
 import React from 'react';
-import copy from 'copy-to-clipboard';
-import { Button, message, Space, Tooltip } from 'antd';
-import {
-	CodeSandboxOutlined,
-	CopyOutlined,
-	EyeOutlined,
-} from '@ant-design/icons';
+import { Space } from 'antd';
+import { CodeSandboxOutlined, EyeOutlined } from '@ant-design/icons';
 
 // components
 import Imagen from 'components/Atoms/Imagen';
 import Title from 'components/Atoms/Title';
 import { BlockCode } from 'components/Atoms/Code';
 import Text from 'components/Atoms/Text';
+import Tooltip from 'components/Atoms/Tooltip';
 
 // styles
 import {
@@ -55,9 +51,8 @@ const Example = ({ title, summary, code, image, snack, ...rest }: IProps) => {
 		setShowCode((prev) => !prev);
 	};
 
-	const copyCode = () => {
-		const c = copy(code);
-		c && message.success('Copy successfully');
+	const openSnack = () => {
+		window.open(snack, '_blank');
 	};
 
 	return (
@@ -67,34 +62,34 @@ const Example = ({ title, summary, code, image, snack, ...rest }: IProps) => {
 			</StyleFirstSection>
 			<StyleSecondSection>
 				<StyleTitle>
-					<Title className="title" isLink variant="ROBOT_24_28_500">
+					<Title textTransform="capitalize" className="title" isLink variant="ROBOT_24_28_500">
 						{title}
 					</Title>
 				</StyleTitle>
-				<Text variant="ROBOT_14_28_400">{summary}</Text>
+				<Text variant="ROBOT_14_28_400" html={summary} />
 			</StyleSecondSection>
 			<StyleFooter>
 				<Space>
 					{snack && (
-						<Tooltip title="Code Snack">
-							<a href={snack} target="_blank" rel="noopener noreferrer">
-								<Button type="link" icon={<CodeSandboxOutlined />} />
-							</a>
-						</Tooltip>
+						<Tooltip
+							text="Snack"
+							title="Code Snack"
+							onClick={openSnack}
+							icon={<CodeSandboxOutlined />}
+						/>
 					)}
-					<Tooltip title="Copy code">
-						<Button onClick={copyCode} type="link" icon={<CopyOutlined />} />
-					</Tooltip>
-					<Tooltip title="Show code">
-						<Button type="link" onClick={showCodeFunc} icon={<EyeOutlined />} />
-					</Tooltip>
+					<Tooltip
+						text="Code"
+						active={showCode}
+						title="Show code"
+						icon={<EyeOutlined />}
+						onClick={showCodeFunc}
+					/>
 				</Space>
 			</StyleFooter>
 			{showCode && (
 				<StyleShowCode>
-					<BlockCode showLineNumbers={false}>
-						{code}
-					</BlockCode>
+					<BlockCode>{code}</BlockCode>
 				</StyleShowCode>
 			)}
 		</StyleExample>

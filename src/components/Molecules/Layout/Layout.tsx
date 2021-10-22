@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+// utils
+import { getIdComponent } from 'utils/getIdComponent';
 
 // menu
 import * as menuData from 'assets/menu';
@@ -13,20 +17,37 @@ import Navbar from './Navbar';
 
 // styles
 import {
+	ActiveStyle,
 	StyleAsideFooter,
+	StyleBody,
 	StyleContent,
+	StyleIndice,
+	StyleIndiceElement,
 	StyleLayout,
 	StyleSider,
+	StyleSpace,
 } from './style';
+
+interface ElementProps {
+	id: string;
+	title: string;
+}
 
 interface IProps {
 	children: React.ReactNode;
+	noIndice?: boolean;
+	data?: {
+		ejemplos: ElementProps[];
+		apis: ElementProps[];
+	};
 }
 
-const Layout = ({ children }: IProps) => {
-	const { pathname, query } = useRouter();
+const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } }: IProps) => {
+	const { pathname, query, asPath } = useRouter();
 	const version = query?.version;
+	const component = query?.component;
 	const [selectedKey, setSelectedKey] = useState<string>('get-started');
+	const [selectIndice, setSelectedIndice] = useState<string>('');
 	const [collapseClass, setCollapseClass] = useState<string>('');
 
 	const onCollapse = (collapsed: boolean) => {
@@ -34,19 +55,39 @@ const Layout = ({ children }: IProps) => {
 		setCollapseClass(newClass);
 	};
 
+	const indiceList = useMemo(() => {
+		const apis = data?.apis ? [{ id: 'api', title: 'API' }] : [];
+		return [
+			...(data?.ejemplos?.filter((f) => f.title) || []),
+			...apis,
+			...(data?.apis?.filter((f) => f.title) || []),
+		];
+	}, [data]);
+
 	React.useEffect(() => {
 		if (version) {
 			// @ts-ignore
 			menuData[version].map((item: any) => {
 				item.children.map((c: any) => {
-					const isActive = pathname.endsWith(c.key);
+					const isActive = component === c.key || pathname.endsWith(c.key);
 					if (isActive) {
+						const content = document.querySelector('#content');
+						content?.scrollTo({ top: 0, behavior: 'smooth' });
 						setSelectedKey(c.key);
 					}
 				});
 			});
 		}
-	}, [pathname, version]);
+	}, [component, version, pathname]);
+
+	React.useEffect(() => {
+		indiceList.map((i) => {
+			const title = getIdComponent(i.title);
+			if (asPath.endsWith(`#${title}`)) {
+				setSelectedIndice(i.title);
+			}
+		});
+	}, [asPath, indiceList]);
 
 	if (!version) return null;
 
@@ -60,6 +101,7 @@ const Layout = ({ children }: IProps) => {
 				/>
 				<Navbar />
 				<StyleLayout>
+					{/* Aside */}
 					<StyleSider
 						width={250}
 						theme="light"
@@ -74,11 +116,39 @@ const Layout = ({ children }: IProps) => {
 						/>
 						<StyleAsideFooter>Copyright &copy;</StyleAsideFooter>
 					</StyleSider>
-					<StyleContent className={collapseClass}>{children}</StyleContent>
+					{/* End Aside */}
+
+					<StyleContent id="content" className={collapseClass}>
+						{/* content children */}
+						<StyleBody>
+							{children}
+							<StyleSpace />
+						</StyleBody>
+						{/* end content children */}
+
+						{/* Indice */}
+						<StyleIndice>
+							{!noIndice && indiceList.map((i, index) => (
+								<Link
+									passHref
+									key={`indice-${index}`}
+									href={`#${getIdComponent(i.title)}`}
+								>
+									<a>
+										<StyleIndiceElement key={i.id}>
+											{selectIndice === i.title && <ActiveStyle />}
+											{i.title}
+										</StyleIndiceElement>
+									</a>
+								</Link>
+							))}
+						</StyleIndice>
+						{/* End Indice */}
+					</StyleContent>
 				</StyleLayout>
 			</StyleLayout>
 		</ThemeProvider>
 	);
 };
 
-export default React.memo(Layout);
+export default Layout;

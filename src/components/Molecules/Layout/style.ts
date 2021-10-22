@@ -13,18 +13,21 @@ export const StyleLayout = styled(Layout)`
 	overflow: hidden;
 `;
 
-export const StyleHead = styled(Header)<{$isHome: boolean, $isHome2: boolean}>`
-	position: ${({ $isHome }) => $isHome ? 'relative' : 'sticky'};
-	background: ${({ $isHome }) => $isHome ? 'transparent' : '#fff'};
-	box-shadow: ${({ $isHome }) => $isHome ? 'none' : '0 2px 8px #f0f1f2'};
+export const StyleHead = styled(Header)<{
+	$isHome: boolean;
+	$isHome2: boolean;
+}>`
+	position: ${({ $isHome }) => ($isHome ? 'relative' : 'sticky')};
+	background: ${({ $isHome }) => ($isHome ? 'transparent' : '#fff')};
+	box-shadow: ${({ $isHome }) => ($isHome ? 'none' : '0 2px 8px #f0f1f2')};
 	width: 100%;
-	padding: ${({ $isHome2 }) => $isHome2 ? '0' : '10px 0'};
+	padding: ${({ $isHome2 }) => ($isHome2 ? '0' : '10px 0')};
 	top: 0;
 	transition: all 350ms;
 	z-index: 10;
 `;
 
-export const StyleHeadContent = styled.div<{$isHome: boolean}>`
+export const StyleHeadContent = styled.div<{ $isHome: boolean }>`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -37,9 +40,9 @@ export const StyleHeadContent = styled.div<{$isHome: boolean}>`
 `;
 
 export const StyleBrand = styled.div`
-		width: 100%;
-		display: flex;
-		align-items: center;
+	width: 100%;
+	display: flex;
+	align-items: center;
 `;
 
 export const ButtonGithub = styled(Button)`
@@ -164,6 +167,8 @@ export const StyleSider = styled(Sider)`
 `;
 
 export const StyleContent = styled(Content)`
+	position: relative;
+	display: flex;
 	//height: calc(100vh - 64px);
 	height: calc(100vh - 100px);
 	flex: 0 0 100%;
@@ -174,7 +179,7 @@ export const StyleContent = styled(Content)`
 	scroll-behavior: smooth;
 
 	${mediaQueries.minTablet} {
-		padding: 10px 20px 100px;
+		padding: 10px 0 100px 10px;
 		flex: 0 0 calc(100% - 250px);
 		transition: all 500ms;
 
@@ -183,6 +188,67 @@ export const StyleContent = styled(Content)`
 			flex: 0 0 100%;
 		}
 	}
+`;
+
+export const StyleBody = styled.div`
+	width: 100%;
+
+	${mediaQueries.minTablet} {
+		width: calc(100% - 140px);
+		padding-right: 20px;
+	}
+`;
+
+export const StyleSpace = styled.div`
+	width: 100%;
+	height: 100px;
+`;
+
+export const StyleIndice = styled.div`
+	display: none;
+	position: sticky;
+	right: 0;
+	top: 0;
+	height: fit-content;
+	width: 140px;
+	padding: 10px 20px 10px 0;
+	border-left: 1px solid #f0f0f0;
+
+	${mediaQueries.minTablet} {
+		display: block;
+	}
+`;
+
+export const StyleIndiceElement = styled(Button)`
+	&.ant-btn {
+		position: relative;
+		width: 100%;
+		text-align: left;
+		font-size: 12px;
+		color: #444444;
+		cursor: pointer;
+		padding: 3px 0 3px 20px;
+		background-color: transparent;
+		border: none;
+		height: auto;
+		text-transform: capitalize;
+		box-shadow: none;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: ${colors.primary};
+		}
+	}
+`;
+
+export const ActiveStyle = styled.div`
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background-color: ${colors.primary};
 `;
 
 export const StyleAsideFooter = styled.div`
@@ -230,12 +296,12 @@ export const StyleMenuHome = styled(Menu)`
 				}
 			}
 
-
 			//Hover
 			.ant-menu-item.ant-menu-item-active {
 				&:after {
 					border-color: ${colors.primaryDark};
 				}
+
 				.ant-menu-title-content {
 					&:hover {
 						* {

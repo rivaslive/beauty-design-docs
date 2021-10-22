@@ -22,7 +22,7 @@ const ComponentTemplate = ({ data }: PageProps) => {
 					{data.component} - {defaultName}
 				</title>
 			</Head>
-			<Layout>
+			<Layout data={data}>
 				{/* provider */}
 				<Title level={1} variant="ROBOT_36_50_500">
 					{data?.title}
@@ -66,9 +66,8 @@ const ComponentTemplate = ({ data }: PageProps) => {
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos &&
 						data?.ejemplos?.map((example) => (
-							<Col xs={24} md={12}>
+							<Col xs={24} md={12} key={example.id}>
 								<Example
-									key={example.id}
 									code={example.code}
 									title={example.title}
 									snack={example.snack}

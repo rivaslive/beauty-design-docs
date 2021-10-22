@@ -1,6 +1,2 @@
-import dynamic from 'next/dynamic';
-import Code from './Code';
-
-const BlockCode = dynamic(() => import('./BlockCode'), { ssr: false });
-
-export { Code, BlockCode };
+export { default as Code } from './Code';
+export { default as BlockCode } from './BlockCode';

@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
 		right: 10px;
 		background-color: rgba(255, 255, 255, 0.1);
 		border: none;
+		color: white;
 
 		.anticon {
 			color: #eaeaea;
@@ -58,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
 			background-color: rgba(255, 255, 255, 0.1);
 			border: none;
 			opacity: 0.7;
+			color: white;
 		}
 
 		&:focus,
@@ -65,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
 			background-color: rgba(255, 255, 255, 0.1);
 			border: none;
 			opacity: 1;
+			color: white;
 		}
 	}
 `;
