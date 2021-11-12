@@ -20,12 +20,16 @@ const ComponentPage = (props: PageProps) => {
 
 // SERVER SIDE RENDERING https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation
 export async function getStaticPaths() {
-	return await getPathsComponent(defaultVersion)
+	return await getPathsComponent(defaultVersion);
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const component = capitalize(params?.component || '');
-	return await getStaticsPropsComponent(component, params?.version || defaultVersion);
+	const out = await getStaticsPropsComponent(component, params?.version || defaultVersion);
+	return {
+		...out,
+		revalidate: 7,
+	};
 };
 
 export default ComponentPage;
