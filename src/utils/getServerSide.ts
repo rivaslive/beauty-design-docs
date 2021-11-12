@@ -51,7 +51,7 @@ export const getPathsComponent = async (version: string | string[]) => {
 
 	// We'll pre-render only these paths at build time.
 	// { fallback: false } means other routes should 404.
-	return { paths, fallback: true };
+	return { paths, fallback: "blocking" };
 };
 
 export const getVersionsPage = async () => {

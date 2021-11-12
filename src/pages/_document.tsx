@@ -10,11 +10,10 @@ import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
-		// Step 1: Create an instance of ServerStyleSheet
 		const sheet = new ServerStyleSheet();
 		const originalRenderPage = ctx.renderPage;
+
 		try {
-			// Step 2: Retrieve styles from components in the page
 			ctx.renderPage = () =>
 				originalRenderPage({
 					enhanceApp: (App) => (props) =>
@@ -39,14 +38,14 @@ class MyDocument extends Document {
 	render() {
 		const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID;
 		return (
-			<Html lang="en">
+			<Html lang='en'>
 				<Head>
-					<meta charSet="utf-8" />
-					<meta httpEquiv="x-ua-compatible" content="ie=edge" />
+					<meta charSet='utf-8' />
+					<meta httpEquiv='x-ua-compatible' content='ie=edge' />
 					{/* GOOGLE FONTS */}
 					<link
-						href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-						rel="stylesheet"
+						href='https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'
+						rel='stylesheet'
 					/>
 
 					{/* Global site tag (gtag.js) - Google Analytics */}
@@ -87,45 +86,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					/>
 					{/* End Google Tag Manager */}
 
-					<meta name="msapplication-TileImage" content="/favicon.png" />
+					<meta name='msapplication-TileImage' content='/favicon.png' />
 					<link
-						rel="apple-touch-icon"
-						sizes="180x180"
-						href="/apple-touch-icon.png"
+						rel='apple-touch-icon'
+						sizes='180x180'
+						href='/apple-touch-icon.png'
 					/>
 					<link
-						rel="icon"
-						type="image/png"
-						sizes="32x32"
-						href="/favicon-32x32.png"
+						rel='icon'
+						type='image/png'
+						sizes='32x32'
+						href='/favicon-32x32.png'
 					/>
 					<link
-						rel="icon"
-						type="image/png"
-						sizes="16x16"
-						href="/favicon-16x16.png"
+						rel='icon'
+						type='image/png'
+						sizes='16x16'
+						href='/favicon-16x16.png'
 					/>
-					<link rel="manifest" href="/site.webmanifest" />
+					<link rel='manifest' href='/site.webmanifest' />
 					<meta
-						name="keywords"
-						content="react-native, React Native, npm, docs, beauty-design, react native beauty-design, beauty design, provider, title, button, tabs, cards, api"
+						name='keywords'
+						content='react-native, React Native, npm, docs, beauty-design, react native beauty-design, beauty design, provider, title, button, tabs, cards, api'
 					/>
-					<meta name="author" content="rivaslive" />
-					<meta property="og:type" content="website" />
+					<meta name='author' content='rivaslive' />
+					<meta property='og:type' content='website' />
 				</Head>
 				<body>
-					{/* Google Tag Manager (noscript) */}
-					<noscript>
-						<iframe
-							width="0"
-							height="0"
-							style={{ display: 'none', visibility: 'hidden' }}
-							src={`https://www.googletagmanager.com/ns.html?id=${GTAG_ID}`}
-						/>
-					</noscript>
-					{/*End Google Tag Manager (noscript)*/}
-					<Main />
-					<NextScript />
+				{/* Google Tag Manager (noscript) */}
+				<noscript>
+					<iframe
+						width='0'
+						height='0'
+						style={{ display: 'none', visibility: 'hidden' }}
+						src={`https://www.googletagmanager.com/ns.html?id=${GTAG_ID}`}
+					/>
+				</noscript>
+				{/*End Google Tag Manager (noscript)*/}
+				<Main />
+				<NextScript />
 				</body>
 			</Html>
 		);

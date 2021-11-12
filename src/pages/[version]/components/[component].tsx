@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const out = await getStaticsPropsComponent(component, params?.version || defaultVersion);
 	return {
 		...out,
-		revalidate: 7,
+		revalidate: 60,
 	};
 };
 
