@@ -9,7 +9,7 @@ import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
 import { Code, BlockCode } from 'components/Atoms/Code';
 import NextStep from 'components/Molecules/NextStep';
-import Seo from '../../components/Atoms/Seo/Seo';
+import Seo from 'components/Atoms/Seo/Seo';
 
 const code = `import { DesignProvider } from 'react-native-beauty-design';
 

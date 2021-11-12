@@ -19,7 +19,7 @@ export const StyleFirstSection = styled.div`
 export const StyleFrameImage = styled.div`
 	position: relative;
 	width: 219px;
-	height: 450px;
+	height: 451px;
 	padding: 12px;
 	margin: auto;
 
@@ -27,7 +27,7 @@ export const StyleFrameImage = styled.div`
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: 30px;
+		border-radius: 25px;
 	}
 
 	&:after {

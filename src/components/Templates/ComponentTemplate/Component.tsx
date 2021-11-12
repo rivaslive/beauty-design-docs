@@ -45,8 +45,8 @@ const ComponentTemplate = ({ data }: PageProps) => {
 				{data?.image?.url && (
 					<>
 						<br />
-						<Title id="what-i-can-do" variant="ROBOT_24_28_500" isLink>
-							What I can do
+						<Title id="What-i-can-do" variant="ROBOT_24_28_500" isLink>
+							What i can do
 						</Title>
 						<Text variant="ROBOT_14_28_400">Basic tour of properties</Text>
 						<ImageFrame

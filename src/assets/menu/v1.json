@@ -59,8 +59,28 @@
 				"name": "Comment"
 			},
 			{
+				"key": "date",
+				"name": "Date Picker"
+			},
+			{
+				"key": "form",
+				"name": "Form"
+			},
+			{
+				"key": "input",
+				"name": "Input"
+			},
+			{
+				"key": "inputNumber",
+				"name": "Input Number"
+			},
+			{
 				"key": "image",
 				"name": "Image"
+			},
+			{
+				"key": "tab",
+				"name": "Tabs"
 			},
 			{
 				"key": "tag",

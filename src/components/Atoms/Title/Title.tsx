@@ -7,6 +7,7 @@ import { ITitleProps, StyleLink, StyleTitle, StyleTitleContent } from './style';
 
 const Title = ({
 	children,
+	id,
 	isLink = false,
 	variant = 'ROBOT_28_39_400',
 	color = '',
@@ -15,13 +16,15 @@ const Title = ({
 	...rest
 }: ITitleProps) => {
 	if (isLink) {
+
 		const onClick = () => {
 			const { origin, pathname } = location;
 			const ref = `${children}`.split(' ').join('-');
 			return navigator.clipboard.writeText(`${origin}${pathname}#${ref}`);
 		};
+
 		return (
-			<StyleTitleContent className={className}>
+			<StyleTitleContent id={id} className={className}>
 				<Link href={`#${children}`.split(' ').join('-')} passHref>
 					<a>
 						<StyleTitle
@@ -44,6 +47,7 @@ const Title = ({
 
 	return (
 		<StyleTitle
+			id={id}
 			level={2}
 			$color={color}
 			$variant={variant}

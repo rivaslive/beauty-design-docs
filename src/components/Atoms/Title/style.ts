@@ -122,6 +122,7 @@ const transforms = {
 
 export const StyleTitleContent = styled.div`
 	display: flex;
+	scroll-margin-top: 30px;
 `;
 
 export const StyleLink = styled(Button)`

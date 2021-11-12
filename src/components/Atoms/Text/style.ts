@@ -47,4 +47,8 @@ export const cssTextVariant = {
 export const StyleText = styled.div<IProps>`
 	color: ${({ $color }) => $color || 'rgba(0, 0, 0, 0.85)'};
 	${({ $variant }) => cssTextVariant[$variant]}
+
+	p {
+		margin-bottom: 0;
+	}
 `;
