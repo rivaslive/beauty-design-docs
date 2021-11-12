@@ -25,7 +25,7 @@ export const menuHome = [
 	{
 		name: 'Github',
 		key: `github`,
-		href: `https://github.com/rivaslive/beauty-ui-landing`,
+		href: `https://github.com/rivaslive/beauty-design`,
 	},
 	{
 		name: 'Contact us',
