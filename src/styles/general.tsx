@@ -1,7 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-import { fontNames } from './theme/theme';
+import { colors, fontNames } from './theme/theme';
 
 const GlobalStyle = createGlobalStyle`
 	${normalize}
@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
 		font-family: ${fontNames.roboto} !important;
 		scroll-behavior: smooth;
 		font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";;
+	}
+
+	::selection {
+		background: ${colors.primary};
 	}
 
 	* {
