@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { GithubOutlined } from '@ant-design/icons';
 
 // brand
 import { repoUrl } from 'utils/getGithub';
 import Link from 'next/link';
-import Brand from '../../../../public/favicon.png';
+import Brand from 'public/favicon.png';
 
 // components
 import {
@@ -16,7 +17,8 @@ import {
 	StyleInputSearch,
 	StyleTitle,
 } from './style';
-import { MenuHome } from './Menu';
+
+const MenuHome = dynamic(import('./MenuHome'), { ssr: false });
 
 interface IProps {
 	isHome?: boolean;
@@ -29,23 +31,23 @@ interface IProps {
 
 const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 	return (
-		<StyleHead $isHome={isSolid} $isHome2={isHome} theme="light">
+		<StyleHead $isHome={isSolid} $isHome2={isHome} theme='light'>
 			<StyleHeadContent $isHome={isSolid}>
-				<Link href="/" passHref>
+				<Link href='/' passHref>
 					<a>
 						<StyleBrand>
-							<Image src={Brand} height={30} width={40} objectFit="contain" />
-							<StyleTitle variant="ROBOT_24_28_500">Beauty Design</StyleTitle>
+							<Image src={Brand} height={30} width={40} objectFit='contain' />
+							<StyleTitle variant='ROBOT_24_28_500'>Beauty Design</StyleTitle>
 						</StyleBrand>
 					</a>
 				</Link>
 				{!isHome ? (
 					<>
-						<StyleInputSearch placeholder="Search..." bordered={false} />
+						<StyleInputSearch placeholder='Search...' bordered={false} />
 						{/* Github */}
-						<ButtonGithub type="link">
-							<a href={repoUrl} target="_blank" rel="noreferrer noopener">
-								<StyleTitle variant="ROBOT_24_28_500">
+						<ButtonGithub type='link'>
+							<a href={repoUrl} target='_blank' rel='noreferrer noopener'>
+								<StyleTitle variant='ROBOT_24_28_500'>
 									<GithubOutlined /> Github
 								</StyleTitle>
 							</a>
@@ -59,4 +61,4 @@ const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
 	);
 };
 
-export default React.memo(Navbar);
+export default Navbar;

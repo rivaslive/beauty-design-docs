@@ -55,11 +55,7 @@
 				"name": "Carousel"
 			},
 			{
-				"key": "comment",
-				"name": "Comment"
-			},
-			{
-				"key": "date",
+				"key": "datepicker",
 				"name": "Date Picker"
 			},
 			{

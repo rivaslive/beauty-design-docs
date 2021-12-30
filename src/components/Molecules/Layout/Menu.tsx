@@ -5,17 +5,13 @@ import Link from 'next/link';
 // menu
 import * as menuData from 'assets/menu';
 
-// components
-import Button from 'components/Atoms/Button';
-
-// styles
-import { StyleMenuHome, StyleMenuHomeItem } from './style';
-
 interface MenuPagesProps {
 	selectedKey: string;
 	version?: string | any;
 	onSelectKey: (k: string) => void;
 }
+
+type VersionType = keyof typeof menuData;
 
 const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 	if (!version) return null;
@@ -27,8 +23,7 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 			selectedKeys={selectedKey ? [selectedKey] : undefined}
 		>
 			{
-				// @ts-ignore
-				menuData[version].map((menu: any) => {
+				menuData[version as VersionType].map((menu: any) => {
 					if (menu?.type === 'divider') {
 						return (
 							<Menu.ItemGroup key={menu.key} title={menu.name}>
@@ -36,7 +31,7 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 									if (child.key === 'getting-started') {
 										return (
 											<Menu.Item key={child.key}>
-												<Link href={`/${version}/${child.key}`}>
+												<Link href={`/${version}/${child.key}`} prefetch>
 													{child.name}
 												</Link>
 											</Menu.Item>
@@ -44,7 +39,7 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 									} else {
 										return (
 											<Menu.Item key={child.key}>
-												<Link href={`/${version}/components/${child.key}`}>
+												<Link href={`/${version}/components/${child.key}`} prefetch>
 													{child.name}
 												</Link>
 											</Menu.Item>
@@ -56,7 +51,7 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 					}
 					return (
 						<Menu.Item key={menu.key}>
-							<Link href={`/${version}/components/${menu.key}`}>
+							<Link href={`/${version}/components/${menu.key}`} prefetch>
 								{menu.name}
 							</Link>
 						</Menu.Item>
@@ -67,44 +62,4 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
 	);
 };
 
-export default React.memo(MenuPages);
-
-export const MenuHome = ({ items }: any) => {
-	const last = items?.length - 1 || 0;
-	return (
-		<>
-			<StyleMenuHome mode="horizontal">
-				{items.map((i: any, index: number) => {
-					if (last === index) return null;
-					if (i.key === 'documentation') {
-						return (
-							<StyleMenuHomeItem key={i.key}>
-								<Link href={i?.href} passHref>
-									<a>{i.name}</a>
-								</Link>
-							</StyleMenuHomeItem>
-						);
-					}
-					return (
-						<StyleMenuHomeItem key={i.key}>
-							<Link href={i?.href ? i.href : `#${i.key}`}>{i.name}</Link>
-						</StyleMenuHomeItem>
-					);
-				})}
-			</StyleMenuHome>
-			{items && items?.length && (
-				<Button variant="LANDING_CONTACT_DARK">
-					{
-						<Link
-							href={
-								items[last]?.href ? items[last].href : `#${items[last].key}`
-							}
-						>
-							{items[last].name}
-						</Link>
-					}
-				</Button>
-			)}
-		</>
-	);
-};
+export default MenuPages;

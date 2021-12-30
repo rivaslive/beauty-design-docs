@@ -17,21 +17,21 @@ import Example, { ImageFrame } from 'components/Molecules/Example/Example';
 const ComponentTemplate = ({ data }: PageProps) => {
 	return (
 		<>
-			<Seo title={capitalize(data.component)} description={data.description}/>
+			<Seo title={capitalize(data.component)} description={data.description} />
 			<Layout data={data}>
 				{/* provider */}
-				<Title level={1} variant="ROBOT_36_50_500">
+				<Title level={1} variant='ROBOT_36_50_500'>
 					{data?.title}
 				</Title>
-				<Text variant="ROBOT_14_28_400" html={data?.description} />
+				<Text variant='ROBOT_14_28_400' html={data?.description} />
 				{/* How to use */}
 				{data?.howToUse && (
 					<>
 						<br />
-						<Title id="How-to-use?" variant="ROBOT_24_28_500" isLink>
+						<Title id='How-to-use?' variant='ROBOT_24_28_500' isLink>
 							How to use?
 						</Title>
-						<Text variant="ROBOT_14_28_400" html={data.howToUse} />
+						<Text variant='ROBOT_14_28_400' html={data.howToUse} />
 					</>
 				)}
 				{/* Default code */}
@@ -45,50 +45,56 @@ const ComponentTemplate = ({ data }: PageProps) => {
 				{data?.image?.url && (
 					<>
 						<br />
-						<Title id="What-i-can-do" variant="ROBOT_24_28_500" isLink>
+						<Title id='What-i-can-do' variant='ROBOT_24_28_500' isLink>
 							What i can do
 						</Title>
-						<Text variant="ROBOT_14_28_400">Basic tour of properties</Text>
+						<Text variant='ROBOT_14_28_400'>Basic tour of properties</Text>
 						<ImageFrame
 							image={data?.image?.url}
 							style={{ margin: 0, marginBottom: 30 }}
 						/>
 					</>
 				)}
+
 				{/* WhyBeautyUI */}
-				<Title id="Examples" variant="ROBOT_24_28_500" isLink>
+				<p />
+				<Title id='Examples' variant='ROBOT_24_28_500' isLink>
 					Examples
 				</Title>
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos &&
-						data?.ejemplos?.map((example) => (
-							<Col xs={24} md={12} key={example.id}>
-								<Example
-									code={example.code}
-									title={example.title}
-									snack={example.snack}
-									image={example?.imagen?.url}
-									summary={example.description}
-									id={getIdComponent(example.title)}
-								/>
-							</Col>
-						))}
+					data?.ejemplos?.map((example) => (
+						<Col xs={24} md={12} key={example.id}>
+							<Example
+								code={example.code}
+								title={example.title}
+								snack={example.snack}
+								image={example?.imagen?.url}
+								summary={example.description}
+								id={getIdComponent(example.title)}
+							/>
+						</Col>
+					))}
 				</Row>
-				<br />
 				{/* Api */}
-				<Title id="API" variant="ROBOT_24_28_500" isLink>
-					API
-				</Title>
-				<br />
 				{data?.apis &&
-					data?.apis?.map((api) => (
+				data?.apis?.map((api) => (
+					<div key={api.id}>
+						{!api.title && (
+							<>
+								<p />
+								<Title id='API' variant='ROBOT_24_28_500' isLink>
+									API
+								</Title>
+							</>
+						)}
 						<Table
-							key={api.id}
 							title={api.title}
 							items={api?.items || []}
 							description={api.description}
 						/>
-					))}
+					</div>
+				))}
 			</Layout>
 		</>
 	);

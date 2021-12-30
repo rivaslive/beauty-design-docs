@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-		"baseUrl": "./src",
+		"baseUrl": "./",
 		"lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,7 +13,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+		"paths": {
+			"public/*": ["public/*"],
+			"components/*": ["src/components/*"],
+			"styles/*": ["src/styles/*"],
+			"hooks/*": ["src/hooks/*"],
+			"lib/*": ["src/lib/*"],
+			"utils/*": ["src/utils/*"],
+			"assets/*": ["src/assets/*"],
+			"mock/*": ["src/mock/*"],
+			"graphql/*": ["src/graphql/*"],
+			"apollo/*": ["src/apollo/*"],
+		},
+		"incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

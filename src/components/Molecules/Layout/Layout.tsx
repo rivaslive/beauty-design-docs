@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 // utils
 import { getIdComponent } from 'utils/getIdComponent';
@@ -12,7 +13,6 @@ import * as menuData from 'assets/menu';
 import AlertBanner from 'components/Atoms/AlertBanner';
 import GlobalStyle from 'styles/general';
 import { ThemeProvider } from 'styled-components';
-import MenuPages from './Menu';
 import Navbar from './Navbar';
 
 // styles
@@ -28,6 +28,10 @@ import {
 	StyleSpace,
 } from './style';
 
+const MenuPages = dynamic(() => import('./Menu'), { ssr: false });
+
+type VersionType = keyof typeof menuData;
+
 interface ElementProps {
 	id: string;
 	title: string;
@@ -37,12 +41,15 @@ interface IProps {
 	children: React.ReactNode;
 	noIndice?: boolean;
 	data?: {
+		howToUse?: string;
 		ejemplos: ElementProps[];
 		apis: ElementProps[];
 	};
 }
 
-const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } }: IProps) => {
+const defaultData = { ejemplos: [], apis: [] };
+
+const Layout = ({ children, noIndice = false, data = defaultData }: IProps) => {
 	const { pathname, query, asPath } = useRouter();
 	const version = query?.version;
 	const component = query?.component;
@@ -57,17 +64,23 @@ const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } 
 
 	const indiceList = useMemo(() => {
 		const apis = data?.apis ? [{ id: 'api', title: 'API' }] : [];
-		return [
+		const out = [
 			...(data?.ejemplos?.filter((f) => f.title) || []),
 			...apis,
 			...(data?.apis?.filter((f) => f.title) || []),
-		];
+		]
+		if (data.howToUse) {
+			out.unshift({
+				id: 'How-to-use?',
+				title: 'How to use?'
+			});
+		}
+		return out;
 	}, [data]);
 
 	React.useEffect(() => {
 		if (version) {
-			// @ts-ignore
-			menuData[version].map((item: any) => {
+			menuData[version as VersionType].map((item: any) => {
 				item.children.map((c: any) => {
 					const isActive = component === c.key || pathname.endsWith(c.key);
 					if (isActive) {
@@ -96,7 +109,7 @@ const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } 
 			<GlobalStyle />
 			<StyleLayout>
 				<AlertBanner
-					message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
+					message='Documentation still under construction, please do not hesitate to leave your comments. Blessings'
 					banner
 				/>
 				<Navbar />
@@ -104,9 +117,9 @@ const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } 
 					{/* Aside */}
 					<StyleSider
 						width={250}
-						theme="light"
-						breakpoint="lg"
-						collapsedWidth="0"
+						theme='light'
+						breakpoint='lg'
+						collapsedWidth='0'
 						onCollapse={onCollapse}
 					>
 						<MenuPages
@@ -118,7 +131,7 @@ const Layout = ({ children, noIndice = false, data = { ejemplos: [], apis: [] } 
 					</StyleSider>
 					{/* End Aside */}
 
-					<StyleContent id="content" className={collapseClass}>
+					<StyleContent id='content' className={collapseClass}>
 						{/* content children */}
 						<StyleBody>
 							{children}
