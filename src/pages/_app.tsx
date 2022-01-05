@@ -5,6 +5,7 @@ import 'highlight.js/styles/atom-one-dark.css';
 
 import React, { useState } from 'react';
 import Head from 'next/head';
+import { string } from 'prop-types';
 import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 import { ConfigProvider } from 'antd';
@@ -19,8 +20,7 @@ import { useApollo } from 'apollo/config';
 // components
 import NProgress from 'components/Atoms/NProgress';
 import Seo from 'components/Atoms/Seo/Seo';
-import { string } from 'prop-types';
-import { ComponentProps, ComponentProvider } from '../context/components';
+import { ComponentProps, ComponentProvider } from 'context/components';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [componentList, setComponentList] = useState<ComponentProps[]>([]);

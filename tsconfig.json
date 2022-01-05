@@ -17,6 +17,7 @@
 		"paths": {
 			"public/*": ["public/*"],
 			"components/*": ["src/components/*"],
+			"context/*": ["src/context/*"],
 			"styles/*": ["src/styles/*"],
 			"hooks/*": ["src/hooks/*"],
 			"lib/*": ["src/lib/*"],

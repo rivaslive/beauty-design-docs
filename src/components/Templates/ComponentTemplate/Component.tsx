@@ -6,7 +6,6 @@ import { capitalize } from 'utils/utils';
 import { getIdComponent } from 'utils/getIdComponent';
 
 // components
-import { useComponent } from '../../../context/components';
 import Text from 'components/Atoms/Text';
 import Seo from 'components/Atoms/Seo/Seo';
 import Title from 'components/Atoms/Title';
@@ -15,6 +14,7 @@ import Table from 'components/Molecules/Table/Table';
 import Layout from 'components/Molecules/Layout/Layout';
 import NextAndPrevStep from 'components/Molecules/NextAndPrevStep';
 import Example, { ImageFrame } from 'components/Molecules/Example/Example';
+import { useComponent } from 'context/components';
 
 // styles
 import { StyleFooterComponent } from './style';
