@@ -1,8 +1,16 @@
 export function capitalize(word: string | string[]) {
 	const str = typeof word === 'object' ? word[0] : word;
+	const replacer = (firstLetter: string) => firstLetter.toUpperCase();
+
+	const newArrayStr = str.split('-');
+	if (newArrayStr.length > 1) {
+		return newArrayStr.map(s => {
+			return s.toLowerCase().replace(/\w/, replacer);
+		}).join(' ');
+	}
 	return str
 	.toLowerCase()
-	.replace(/\w/, (firstLetter) => firstLetter.toUpperCase());
+	.replace(/\w/, replacer);
 }
 
 export const decodeUTF8Text = (text: string) => {
@@ -13,5 +21,5 @@ export const decodeUTF8Text = (text: string) => {
 	newText = newText.replace(/&oacute;/g, 'ó');
 	newText = newText.replace(/&uacute;/g, 'ú');
 	newText = newText.replace(/&ntilde;/g, 'ñ');
-	return newText
-}
+	return newText;
+};

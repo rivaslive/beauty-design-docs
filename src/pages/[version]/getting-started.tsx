@@ -8,7 +8,7 @@ import Layout from 'components/Molecules/Layout';
 import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
 import { Code, BlockCode } from 'components/Atoms/Code';
-import NextStep from 'components/Molecules/NextStep';
+import NextAndPrevStep from 'components/Molecules/NextAndPrevStep';
 import Seo from 'components/Atoms/Seo/Seo';
 
 const code = `import { DesignProvider } from 'react-native-beauty-design';
@@ -83,7 +83,7 @@ const GettingStartedPage = () => {
 					html={`It is advisable to correctly configure the provider to have the maximum customization of the library.`}
 				/>
 				<br />
-				<NextStep
+				<NextAndPrevStep
 					title="Provider"
 					summary="Config provider"
 					href="/v1/components/provider"

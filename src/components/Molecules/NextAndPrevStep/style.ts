@@ -4,6 +4,7 @@ import Title from 'components/Atoms/Title';
 export const StyleNext = styled.div`
 	display: inline-block;
 	padding: 10px 30px;
+	margin-bottom: 20px;
 	min-width: 300px;
 	max-width: 100%;
 	border: 1px solid rgba(100, 100, 100, .2);

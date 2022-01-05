@@ -6,15 +6,21 @@ import { capitalize } from 'utils/utils';
 import { getIdComponent } from 'utils/getIdComponent';
 
 // components
+import { useComponent } from '../../../context/components';
 import Text from 'components/Atoms/Text';
 import Seo from 'components/Atoms/Seo/Seo';
 import Title from 'components/Atoms/Title';
 import { BlockCode } from 'components/Atoms/Code';
 import Table from 'components/Molecules/Table/Table';
 import Layout from 'components/Molecules/Layout/Layout';
+import NextAndPrevStep from 'components/Molecules/NextAndPrevStep';
 import Example, { ImageFrame } from 'components/Molecules/Example/Example';
 
+// styles
+import { StyleFooterComponent } from './style';
+
 const ComponentTemplate = ({ data }: PageProps) => {
+	const { previous, next } = useComponent(data?.title);
 	return (
 		<>
 			<Seo title={capitalize(data.component)} description={data.description} />
@@ -58,9 +64,11 @@ const ComponentTemplate = ({ data }: PageProps) => {
 
 				{/* WhyBeautyUI */}
 				<p />
-				<Title id='Examples' variant='ROBOT_24_28_500' isLink>
-					Examples
-				</Title>
+				{!!data?.ejemplos?.length && (
+					<Title id='Examples' variant='ROBOT_24_28_500' isLink>
+						Examples
+					</Title>
+				)}
 				<Row gutter={[20, 20]}>
 					{data?.ejemplos &&
 					data?.ejemplos?.map((example) => (
@@ -95,6 +103,27 @@ const ComponentTemplate = ({ data }: PageProps) => {
 						/>
 					</div>
 				))}
+				<StyleFooterComponent>
+					{
+						previous && (
+							<NextAndPrevStep
+								isPrev
+								title={previous.name}
+								summary={previous.name}
+								href={previous.key !== 'getting-started' ? `/v1/components/${previous.key}` : `/v1/${previous.key}`}
+							/>
+						)
+					}
+					{
+						next && (
+							<NextAndPrevStep
+								title={next.name}
+								summary={next.name}
+								href={`/v1/components/${next.key}`}
+							/>
+						)
+					}
+				</StyleFooterComponent>
 			</Layout>
 		</>
 	);

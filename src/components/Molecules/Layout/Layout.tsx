@@ -63,7 +63,7 @@ const Layout = ({ children, noIndice = false, data = defaultData }: IProps) => {
 	};
 
 	const indiceList = useMemo(() => {
-		const apis = data?.apis ? [{ id: 'api', title: 'API' }] : [];
+		const apis = data?.apis?.length ? [{ id: 'api', title: 'API' }] : [];
 		const out = [
 			...(data?.ejemplos?.filter((f) => f.title) || []),
 			...apis,

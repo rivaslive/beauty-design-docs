@@ -20,6 +20,14 @@
 				"name": "Provider"
 			},
 			{
+				"key": "icon",
+				"name": "Icon"
+			},
+			{
+				"key": "space",
+				"name": "Space"
+			},
+			{
 				"key": "title",
 				"name": "Title"
 			},
@@ -30,6 +38,49 @@
 			{
 				"key": "button",
 				"name": "Button"
+			}
+		]
+	},
+	{
+		"key": "data-entry",
+		"type": "divider",
+		"name": "Data Entry",
+		"children": [
+			{
+				"key": "checkbox",
+				"name": "Checkbox"
+			},
+			{
+				"key": "controller",
+				"name": "Controller"
+			},
+			{
+				"key": "datepicker",
+				"name": "Date Picker"
+			},
+			{
+				"key": "form",
+				"name": "Form"
+			},
+			{
+				"key": "input",
+				"name": "Input"
+			},
+			{
+				"key": "radio",
+				"name": "Radio"
+			},
+			{
+				"key": "rate",
+				"name": "Rate"
+			},
+			{
+				"key": "select",
+				"name": "Select"
+			},
+			{
+				"key": "switch",
+				"name": "Switch"
 			}
 		]
 	},
@@ -55,32 +106,43 @@
 				"name": "Carousel"
 			},
 			{
-				"key": "datepicker",
-				"name": "Date Picker"
-			},
-			{
-				"key": "form",
-				"name": "Form"
-			},
-			{
-				"key": "input",
-				"name": "Input"
-			},
-			{
-				"key": "inputNumber",
-				"name": "Input Number"
+				"key": "collapse",
+				"name": "Collapse"
 			},
 			{
 				"key": "image",
 				"name": "Image"
 			},
 			{
-				"key": "tab",
+				"key": "tabs",
 				"name": "Tabs"
+			}
+		]
+	},
+	{
+		"key": "feedback",
+		"type": "divider",
+		"name": "Feedback",
+		"children": [
+			{
+				"key": "alert",
+				"name": "Alert"
 			},
 			{
-				"key": "tag",
-				"name": "Tag"
+				"key": "modal",
+				"name": "Modal"
+			},
+			{
+				"key": "notification",
+				"name": "Notification"
+			},
+			{
+				"key": "message",
+				"name": "Message"
+			},
+			{
+				"key": "pop-confirm",
+				"name": "Pop Confirm"
 			}
 		]
 	}

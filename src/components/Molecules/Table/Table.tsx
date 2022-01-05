@@ -32,14 +32,14 @@ const Table = ({ items, description, title }: IProps) => {
 			title: 'Description',
 			dataIndex: 'description',
 			render: (text: any) => (
-				<Text variant="ROBOT_14_28_400" html={text} />
+				<Text variant='ROBOT_14_28_400' html={text} />
 			),
 		},
 		{
 			title: 'Type',
 			dataIndex: 'type',
 			render: (text: any) => (
-				<Text color="#c41d7f" variant="ROBOT_14_28_400">
+				<Text color='#c41d7f' variant='ROBOT_14_28_400'>
 					{text}
 				</Text>
 			),
@@ -57,7 +57,7 @@ const Table = ({ items, description, title }: IProps) => {
 				<>
 					<br />
 					<br />
-					<Title id={getIdComponent(title)} variant="ROBOT_24_28_500" isLink>
+					<Title id={getIdComponent(title)} variant='ROBOT_24_28_500' isLink>
 						{title}
 					</Title>
 				</>
@@ -65,16 +65,18 @@ const Table = ({ items, description, title }: IProps) => {
 			{/*description*/}
 			{description && (
 				<>
-					<Text variant="ROBOT_14_28_400" html={description} />
+					<Text variant='ROBOT_14_28_400' html={description} />
 					<br />
 				</>
 			)}
-			<TableAnt
-				rowKey="id"
-				pagination={false}
-				columns={columns}
-				dataSource={items}
-			/>
+			{!!items.length && (
+				<TableAnt
+					rowKey='id'
+					pagination={false}
+					columns={columns}
+					dataSource={items}
+				/>
+			)}
 		</StyleContent>
 	);
 };
