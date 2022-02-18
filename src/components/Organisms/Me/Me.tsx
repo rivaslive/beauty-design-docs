@@ -8,9 +8,7 @@ import Button from 'components/Atoms/Button';
 // styles
 import { StyleContent, StyleImage, StyleMe, StyleTitle } from './style';
 
-interface IProps {}
-
-const Me = (props: IProps) => {
+const Me = () => {
   return (
     <StyleMe>
       <StyleContent>

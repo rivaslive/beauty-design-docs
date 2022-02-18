@@ -30,30 +30,35 @@ const MenuPages = ({ selectedKey, version, onSelectKey }: MenuPagesProps) => {
                 if (child.key === 'getting-started') {
                   return (
                     <Menu.Item key={child.key}>
-                      <Link href={`/${version as string}/${child.key}`} prefetch>
-                        {child.name}
-                      </Link>
-                    </Menu.Item>
-                  );
-                }
-                  return (
-                    <Menu.Item key={child.key}>
                       <Link
-                        href={`/${version as string}/components/${child.key}`}
+                        href={`/${version as string}/${child.key}`}
                         prefetch
                       >
                         {child.name}
                       </Link>
                     </Menu.Item>
                   );
-
+                }
+                return (
+                  <Menu.Item key={child.key}>
+                    <Link
+                      href={`/${version as string}/components/${child.key}`}
+                      prefetch
+                    >
+                      {child.name}
+                    </Link>
+                  </Menu.Item>
+                );
               })}
             </Menu.ItemGroup>
           );
         }
         return (
           <Menu.Item key={menu.key}>
-            <Link href={`/${version as string}/components/${menu.key}`} prefetch>
+            <Link
+              href={`/${version as string}/components/${menu.key}`}
+              prefetch
+            >
               {menu.name}
             </Link>
           </Menu.Item>

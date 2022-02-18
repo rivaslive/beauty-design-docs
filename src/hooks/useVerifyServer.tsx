@@ -15,6 +15,8 @@ export const useVerifyServer = ({ loading, data }: VerifyServerProps) => {
     loading: true,
     data: null,
   });
+
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     if (!loading) {
       if (data && data?.componentes) {

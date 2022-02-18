@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { GetStaticProps } from 'next';
-import { ThemeContext } from 'styled-components';
 
 // utils
 import { capitalize } from 'utils/utils';
@@ -15,8 +14,6 @@ import ComponentTemplate from 'components/Templates/ComponentTemplate';
 import { defaultVersion } from 'utils/defaultVersion';
 
 const ComponentPage = (props: PageProps) => {
-  const themeContext = useContext(ThemeContext);
-  console.log(themeContext);
   if (!props?.data || props?.isBuilding) {
     return <BuildingPage />;
   }

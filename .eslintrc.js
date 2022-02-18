@@ -51,6 +51,8 @@ module.exports = {
     'arrow-body-style': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/no-array-index-key': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
   settings: {
     next: {

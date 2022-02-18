@@ -80,7 +80,7 @@ class MyDocument extends Document {
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTAG_ID}');
+})(window,document,'script','dataLayer','${GTAG_ID as string}');
           `,
             }}
           />
@@ -115,11 +115,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <body>
           {/* Google Tag Manager (noscript) */}
           <noscript>
+            {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
             <iframe
               width="0"
               height="0"
               style={{ display: 'none', visibility: 'hidden' }}
-              src={`https://www.googletagmanager.com/ns.html?id=${GTAG_ID}`}
+              src={`https://www.googletagmanager.com/ns.html?id=${
+                GTAG_ID as string
+              }`}
             />
           </noscript>
           {/* End Google Tag Manager (noscript) */}

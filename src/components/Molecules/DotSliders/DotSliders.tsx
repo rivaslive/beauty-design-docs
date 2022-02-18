@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React from 'react';
 
 // components
@@ -63,16 +64,17 @@ export const CustomPagination = ({
   bgColor = 'transparent',
   onClick,
 }: Color) => {
-  const getColor = (bgColor: string, color?: ColorVariant) => {
-    if (bgColor !== 'transparent' && !color) {
+  const getColor = (bgInternalColor: string, internalColor?: ColorVariant) => {
+    if (bgInternalColor !== 'transparent' && !internalColor) {
       return 'white';
-    } if (bgColor !== 'transparent' && color) {
-      return colors[color];
-    } if (bgColor === 'transparent' && color) {
-      return colors[color];
-    } 
-      return colors.primary;
-    
+    }
+    if (bgInternalColor !== 'transparent' && internalColor) {
+      return colors[internalColor];
+    }
+    if (bgInternalColor === 'transparent' && internalColor) {
+      return colors[internalColor];
+    }
+    return colors.primary;
   };
   return (
     <div

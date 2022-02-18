@@ -8,11 +8,11 @@ export const StyleContainer = styled.div<{ $withTopPadding: boolean }>`
   padding: ${({ $withTopPadding }) =>
     $withTopPadding ? '75px 15px' : '0 15px'};
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.minTablet} {
     max-width: 750px;
   }
 
-  ${mediaQueries.tablet} {
+  ${mediaQueries.minDesktop} {
     max-width: 1170px;
   }
 `;

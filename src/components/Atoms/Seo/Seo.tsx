@@ -24,7 +24,8 @@ const Seo = ({
   canonical = 'https://www.beauty-design.app/',
   image = 'https://www.beauty-design.app/share.png',
 }: SeoProps) => {
-  const newTitle = `${title}${!notDash && ` -`} ${defaultName}`;
+  const newTitle = `${title}${!notDash ? ` -` : ''} ${defaultName}`;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument,@typescript-eslint/no-unsafe-call
   const newDescription = decodeUTF8Text(htmlToFormattedText(description));
   return (
     <NextSeo

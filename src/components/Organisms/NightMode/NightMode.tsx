@@ -14,9 +14,7 @@ import {
   StyleTitle,
 } from './style';
 
-interface IProps {}
-
-const NightMode = (props: IProps) => {
+const NightMode = () => {
   const [image, setImage] = React.useState<string>('/white.png');
 
   React.useEffect(() => {

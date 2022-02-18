@@ -74,11 +74,11 @@ const Navbar = ({
           </Link>
         </StyleHeadBody>
         {!isHome ? (
-            <StyleInputSearch
-              placeholder="Search..."
-              bordered={false}
-              size="large"
-            />
+          <StyleInputSearch
+            placeholder="Search..."
+            bordered={false}
+            size="large"
+          />
         ) : (
           <MenuHome items={menu as MenuItemProps[]} />
         )}

@@ -6,7 +6,8 @@ export const codeTheme = css`
     background: rgb(54, 52, 73);
     color: #fcfcfa;
     text-shadow: 0 1px rgb(54, 52, 73);
-    font-family: 'Fira Mono', Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;
+    font-family: 'Fira Mono', Monaco, 'Lucida Console', 'Liberation Mono',
+      'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -52,7 +53,8 @@ export const codeTheme = css`
       font-size: 16px;
       line-height: 24px;
       font-weight: 500;
-      font-family: 'Fira Mono', Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono','Courier New', monospace;
+      font-family: 'Fira Mono', Monaco, 'Lucida Console', 'Liberation Mono',
+        'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
     }
   }
 

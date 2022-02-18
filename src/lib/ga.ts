@@ -1,7 +1,14 @@
+/*
+ eslint-disable
+ @typescript-eslint/no-unsafe-call,
+ @typescript-eslint/no-shadow,
+ @typescript-eslint/no-unsafe-member-access
+ */
+
 // log the page view with their URL
 export const pageView = (url: string) => {
   // @ts-ignore
-  window?.gtag('config', `${process.env.NEXT_PUBLIC_GTAG_ID}`, {
+  window?.gtag('config', `${process.env.NEXT_PUBLIC_GTAG_ID as string}`, {
     page_path: url,
   });
 };

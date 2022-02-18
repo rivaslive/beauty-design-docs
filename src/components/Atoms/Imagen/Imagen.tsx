@@ -1,5 +1,4 @@
 import React from 'react';
-import { ImageProps } from 'next/image';
 import { StyleImage } from './style';
 
 type ImagenProps = {

@@ -1,8 +1,6 @@
-import { StyleButton } from 'components/Molecules/ThemeButton/style';
+import { StyleButton } from './style';
 
-interface ThemeButtonProps {}
-
-const ThemeButton = (props: ThemeButtonProps) => {
+const ThemeButton = () => {
   return <StyleButton icon={<i className="bx bx-moon" />} />;
 };
 

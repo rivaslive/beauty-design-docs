@@ -24,22 +24,23 @@ const getColor = (bgColor: string, dotColor?: ColorVariant) => {
       background: ${bgColor};
       color: white;
     `;
-  } if (bgColor !== 'transparent' && dotColor) {
+  }
+  if (bgColor !== 'transparent' && dotColor) {
     return css`
       background: ${bgColor};
       color: ${colors[dotColor]};
     `;
-  } if (bgColor === 'transparent' && dotColor) {
+  }
+  if (bgColor === 'transparent' && dotColor) {
     return css`
       background: ${bgColor};
       color: ${colors[dotColor]};
     `;
-  } 
-    return css`
-      background: ${bgColor};
-      color: ${colors.primary};
-    `;
-  
+  }
+  return css`
+    background: ${bgColor};
+    color: ${colors.primary};
+  `;
 };
 
 export const DotsWrapperUl = styled.ul<Dots>`

@@ -5,9 +5,7 @@ import Layout from 'components/Molecules/Layout';
 import Title from 'components/Atoms/Title';
 import Text from 'components/Atoms/Text';
 
-interface IProps {}
-
-const BuildingPage = (props: IProps) => {
+const BuildingPage = () => {
   return (
     <Layout>
       {/* provider */}

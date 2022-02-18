@@ -1,9 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  LeftOutlined,
-  RightOutlined,
-} from '@ant-design/icons';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 // components
 import Text from 'components/Atoms/Text';
@@ -28,7 +25,9 @@ const NextAndPrevStep = ({ href, title, summary, isPrev }: IProps) => {
               <LeftOutlined />
             </StyleIcon>
           )}
-          <Text className="text" variant="ROBOT_14_28_400">{`${title}: ${summary ?? ''}`}</Text>
+          <Text className="text" variant="ROBOT_14_28_400">{`${title}: ${
+            summary ?? ''
+          }`}</Text>
           {!isPrev && (
             <StyleIcon>
               <RightOutlined />

@@ -1,3 +1,11 @@
+/*
+ eslint-disable
+ @typescript-eslint/no-unsafe-call,
+ @typescript-eslint/no-unsafe-member-access,
+ @typescript-eslint/no-unsafe-return,
+ no-unused-vars,
+ */
+
 import React, { useCallback } from 'react';
 import type { Settings } from 'react-slick';
 
@@ -8,21 +16,12 @@ import DotSlidersComponent from 'components/Molecules/DotSliders';
 import { ColorVariant } from 'styles/theme/theme';
 import { CustomPagination } from 'components/Molecules/DotSliders/DotSliders';
 
-// eslint-disable-next-line no-unused-vars
 type SettingsType = (p?: {
   dotColor?: ColorVariant;
   bgColor?: ColorVariant;
 }) => Settings;
 
-interface ArrowProps {
-  className?: string;
-  style?: any;
-  onClick?: () => void;
-
-  [key: string]: unknown;
-}
-
-export default function useSlick(ref: any = null, isBanner = false) {
+export default function useSlick(ref: any = null) {
   // Handlers
   const nextSlider = useCallback(() => {
     ref?.current?.slickNext();

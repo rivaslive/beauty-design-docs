@@ -58,7 +58,7 @@ const Layout = ({ children, noIndice = false, data = defaultData }: IProps) => {
   const [collapseClass, setCollapseClass] = useState<string>('');
 
   const onCollapse = () => {
-    setIsOpenMenu(prev => {
+    setIsOpenMenu((prev) => {
       const collapsed = !prev;
       const newClass = collapsed ? 'collapsed' : '';
       setCollapseClass(newClass);

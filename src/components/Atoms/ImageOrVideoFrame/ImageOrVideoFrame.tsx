@@ -98,10 +98,7 @@ const ImageOrVideoFrame = ({
       {isVideo ? (
         <>
           <video ref={videoRef} className="video-js vjs-big-play-centered">
-            <source
-              src={src}
-              type="video/mp4"
-            />
+            <source src={src} type="video/mp4" />
           </video>
           <StyleWrapperPlay onClick={onPlayOrPause}>
             <StylePlay className={`${isPlaying ? 'd-none' : ''}`} />
