@@ -1,17 +1,10 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+import AllComponentTemplate from 'components/Templates/AllComponentTemplate';
 
 // components
-import { defaultVersion } from 'utils/defaultVersion';
 
 const ComponentsPage = () => {
-	const router = useRouter();
-	React.useEffect(() => {
-		// TODO: Temporal redirect building...
-		router.replace(`/${defaultVersion}/getting-started`);
-	}, [router]);
-
-	return null;
+  return <AllComponentTemplate />;
 };
 
 export default React.memo(ComponentsPage);

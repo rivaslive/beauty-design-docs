@@ -1,3 +1,3 @@
 export const getIdComponent = (title: string) => {
-	return `${title}`.split(' ').join('-');
-}
+  return `${title}`.split(' ').join('-');
+};

@@ -1,4 +1,4 @@
 declare interface PageProps {
-	data: IComponentes;
-	isBuilding?: boolean;
+  data: IComponentes;
+  isBuilding?: boolean;
 }

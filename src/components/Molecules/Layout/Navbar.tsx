@@ -1,64 +1,99 @@
 import React from 'react';
+import { Badge } from 'antd';
 import Image from 'next/image';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { GithubOutlined } from '@ant-design/icons';
+import { CloseOutlined, GithubOutlined, MenuOutlined } from '@ant-design/icons';
 
 // brand
 import { repoUrl } from 'utils/getGithub';
-import Link from 'next/link';
 import Brand from 'public/favicon.png';
 
 // components
+import ThemeButton from 'components/Molecules/ThemeButton';
+import { MenuItemProps } from 'components/Molecules/Layout/MenuHome';
+
+// styles
 import {
-	ButtonGithub,
-	StyleBrand,
-	StyleHead,
-	StyleHeadContent,
-	StyleInputSearch,
-	StyleTitle,
+  ButtonGithub,
+  StyleBrand,
+  StyleBrandLink,
+  StyleCollapseSider,
+  StyleHead,
+  StyleHeadBody,
+  StyleHeadContent,
+  StyleInputSearch,
+  StyleTitle,
 } from './style';
 
 const MenuHome = dynamic(import('./MenuHome'), { ssr: false });
 
 interface IProps {
-	isHome?: boolean;
-	isSolid?: boolean;
-	menu?: {
-		name: string;
-		key: string;
-	}[];
+  isHome?: boolean;
+  isSolid?: boolean;
+  collapse?: boolean;
+  onCollapse?: () => void;
+  menu?: {
+    name: string;
+    key: string;
+  }[];
 }
 
-const Navbar = ({ isSolid = false, isHome = false, menu }: IProps) => {
-	return (
-		<StyleHead $isHome={isSolid} $isHome2={isHome} theme='light'>
-			<StyleHeadContent $isHome={isSolid}>
-				<Link href='/' passHref>
-					<a>
-						<StyleBrand>
-							<Image src={Brand} height={30} width={40} objectFit='contain' />
-							<StyleTitle variant='ROBOT_24_28_500'>Beauty Design</StyleTitle>
-						</StyleBrand>
-					</a>
-				</Link>
-				{!isHome ? (
-					<>
-						<StyleInputSearch placeholder='Search...' bordered={false} />
-						{/* Github */}
-						<ButtonGithub type='link'>
-							<a href={repoUrl} target='_blank' rel='noreferrer noopener'>
-								<StyleTitle variant='ROBOT_24_28_500'>
-									<GithubOutlined /> Github
-								</StyleTitle>
-							</a>
-						</ButtonGithub>
-					</>
-				) : (
-					<MenuHome items={menu} />
-				)}
-			</StyleHeadContent>
-		</StyleHead>
-	);
+const Navbar = ({
+  onCollapse,
+  collapse,
+  isSolid = false,
+  isHome = false,
+  menu,
+}: IProps) => {
+  return (
+    <StyleHead $isHome={isSolid} $isHome2={isHome} theme="light">
+      <StyleHeadContent $isHome={isSolid}>
+        <StyleHeadBody>
+          {!isHome && (
+            <StyleCollapseSider onClick={onCollapse}>
+              {collapse ? <MenuOutlined /> : <CloseOutlined />}
+            </StyleCollapseSider>
+          )}
+          <Link href="/" passHref>
+            <StyleBrandLink>
+              <Badge count="BETA" offset={[20, 10]}>
+                <StyleBrand>
+                  <Image
+                    src={Brand}
+                    height={30}
+                    width={40}
+                    objectFit="contain"
+                  />
+                  <StyleTitle variant="ROBOT_24_28_500">
+                    Beauty Design
+                  </StyleTitle>
+                </StyleBrand>
+              </Badge>
+            </StyleBrandLink>
+          </Link>
+        </StyleHeadBody>
+        {!isHome ? (
+            <StyleInputSearch
+              placeholder="Search..."
+              bordered={false}
+              size="large"
+            />
+        ) : (
+          <MenuHome items={menu as MenuItemProps[]} />
+        )}
+
+        {/* Dark theme */}
+        <ThemeButton />
+        {/* End dark theme */}
+
+        {/* Github */}
+        <a href={repoUrl} target="_blank" rel="noreferrer noopener">
+          <ButtonGithub icon={<GithubOutlined />} />
+        </a>
+      </StyleHeadContent>
+    </StyleHead>
+  );
 };
 
 export default Navbar;

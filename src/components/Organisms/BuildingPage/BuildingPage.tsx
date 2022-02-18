@@ -8,15 +8,15 @@ import Text from 'components/Atoms/Text';
 interface IProps {}
 
 const BuildingPage = (props: IProps) => {
-	return (
-		<Layout>
-			{/* provider */}
-			<Title variant="ROBOT_36_50_500">Building page</Title>
-			<Text variant="ROBOT_14_28_400">
-				We are building this page, soon you will be able to see in its entirety.
-			</Text>
-		</Layout>
-	);
+  return (
+    <Layout>
+      {/* provider */}
+      <Title variant="ROBOT_36_50_500">Building page</Title>
+      <Text variant="ROBOT_14_28_400">
+        We are building this page, soon you will be able to see in its entirety.
+      </Text>
+    </Layout>
+  );
 };
 
 export default BuildingPage;

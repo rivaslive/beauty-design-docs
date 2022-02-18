@@ -1,5 +1,4 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 
 import useScrollDirection from 'hooks/useScrollDirection';
 
@@ -7,7 +6,6 @@ import useScrollDirection from 'hooks/useScrollDirection';
 import Me from 'components/Organisms/Me';
 import Footer from 'components/Organisms/Footer';
 import Examples from 'components/Organisms/Examples';
-import AlertBanner from 'components/Atoms/AlertBanner';
 import Donations from 'components/Organisms/Donations';
 import NightMode from 'components/Organisms/NightMode';
 import Navbar from 'components/Molecules/Layout/Navbar';
@@ -15,36 +13,30 @@ import BannerHome from 'components/Organisms/BannerHome';
 import WhyBeautyUI from 'components/Organisms/WhyBeautyUi';
 
 // styles
-import GlobalStyle from 'styles/general';
 import { StyleContent, StyleHome } from './styles';
+
+// mock
 import { menuHome } from './mock';
 
 const HomeTemplate = () => {
-	const { scrollPositionAtTop } = useScrollDirection(true, 0, 200);
+  const { scrollPositionAtTop } = useScrollDirection(true, 0, 200);
 
-	return (
-		<ThemeProvider theme={{ isHome: true }}>
-			<GlobalStyle />
-			<StyleHome id="home">
-				<AlertBanner
-					message="Documentation still under construction, please do not hesitate to leave your comments. Blessings"
-					banner
-				/>
-				<Navbar isHome isSolid={scrollPositionAtTop} menu={menuHome} />
-				<StyleHome>
-					<StyleContent>
-						<BannerHome />
-						<WhyBeautyUI id="why-beauty-ui" />
-						<NightMode />
-						<Examples id="examples" />
-						<Me />
-						<Donations id="donations" />
-						<Footer />
-					</StyleContent>
-				</StyleHome>
-			</StyleHome>
-		</ThemeProvider>
-	);
+  return (
+    <StyleHome id="home">
+      <Navbar isHome isSolid={scrollPositionAtTop} menu={menuHome} />
+      <StyleHome>
+        <StyleContent>
+          <BannerHome />
+          <WhyBeautyUI id="why-beauty-ui" />
+          <NightMode />
+          <Examples id="examples" />
+          <Me />
+          <Donations id="donations" />
+          <Footer />
+        </StyleContent>
+      </StyleHome>
+    </StyleHome>
+  );
 };
 
 export default React.memo(HomeTemplate);
