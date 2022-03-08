@@ -83,10 +83,6 @@ const Navbar = ({
           <MenuHome items={menu as MenuItemProps[]} />
         )}
 
-        {/* Dark theme */}
-        <ThemeButton />
-        {/* End dark theme */}
-
         {/* Github */}
         <a href={repoUrl} target="_blank" rel="noreferrer noopener">
           <ButtonGithub icon={<GithubOutlined />} />

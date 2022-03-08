@@ -41,7 +41,6 @@ export const StyleCard = styled.div`
 
     ${StyleIcon} {
       i.bx {
-        color: ${colors.secondary};
         transform: scale(1.3);
       }
     }
